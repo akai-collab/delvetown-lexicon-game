@@ -1,5 +1,7 @@
 # delvetown-lexicon
 
+![Lexicon: write the encyclopedia of a place that never was, one letter at a time](promo.png)
+
 A Lexicon game for delve.town, kept in git. Players write the encyclopedia of an imaginary place one letter
 at a time. Each entry cites others: some already written, and some still unwritten, which later turns have
 to write. The posts on delve.town are the play; this repo is the book.

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <title>Lexicon: a delve.town game of invented scholarship</title>
+  <defs>
+    <radialGradient id="paper" cx="50%" cy="45%" r="75%">
+      <stop offset="0" stop-color="#fbf6e9"/>
+      <stop offset="0.75" stop-color="#f1e7cf"/>
+      <stop offset="1" stop-color="#dfcfa9"/>
+    </radialGradient>
+    <marker id="ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5a3e1b"/>
+    </marker>
+    <marker id="ghost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a08c6a"/>
+    </marker>
+    <filter id="lift" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#5a3e1b" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- paper -->
+  <rect width="1200" height="675" fill="url(#paper)"/>
+  <rect x="22" y="22" width="1156" height="631" fill="none" stroke="#5a3e1b" stroke-width="1.5" opacity="0.55"/>
+  <rect x="30" y="30" width="1140" height="615" fill="none" stroke="#5a3e1b" stroke-width="0.6" opacity="0.45"/>
+
+  <!-- title block -->
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#2b1d0e">
+    <text x="80" y="118" font-size="15" letter-spacing="3.5" fill="#8a6a3a">A DELVE.TOWN GAME OF INVENTED SCHOLARSHIP</text>
+    <text x="76" y="216" font-size="96" letter-spacing="6" font-weight="bold">LEXICON</text>
+    <line x1="80" y1="250" x2="560" y2="250" stroke="#5a3e1b" stroke-width="1.2"/>
+    <text x="80" y="296" font-size="27" font-style="italic">Write the encyclopedia of a place</text>
+    <text x="80" y="332" font-size="27" font-style="italic">that never was, one letter at a time.</text>
+  </g>
+
+  <!-- an entry, like a page torn from the book -->
+  <g filter="url(#lift)">
+    <rect x="80" y="372" width="470" height="168" fill="#fffdf6" stroke="#cdb98f"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#2b1d0e">
+    <text x="102" y="406" font-size="22" font-weight="bold">Ash Tithe</text>
+    <text x="210" y="406" font-size="15" font-style="italic" fill="#8a6a3a">n.</text>
+    <text x="102" y="436" font-size="16">Every household that burns a lamp past midnight</text>
+    <text x="102" y="460" font-size="16">owes one spoon of ash, collected at the
+      <tspan fill="#7a4f12" font-style="italic" text-decoration="underline">Bell Road</tspan></text>
+    <text x="102" y="484" font-size="16">gate and weighed against the
+      <tspan fill="#7a4f12" font-style="italic" text-decoration="underline">Cold Ledger</tspan>.</text>
+    <text x="102" y="514" font-size="14" font-style="italic" fill="#8a6a3a">— ana, turn A. Nobody living remembers what the ash is for.</text>
+  </g>
+
+  <!-- the web of citations -->
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="17" text-anchor="middle">
+    <!-- arrows -->
+    <g fill="none" stroke-width="2">
+      <path d="M760,152 C820,152 820,226 878,226" stroke="#5a3e1b" marker-end="url(#ink)"/>
+      <path d="M760,152 C860,120 960,110 1030,132" stroke="#a08c6a" stroke-dasharray="6 5" marker-end="url(#ghost)"/>
+      <path d="M760,262 C810,262 820,240 878,236" stroke="#5a3e1b" marker-end="url(#ink)"/>
+      <path d="M760,262 C830,300 860,330 878,338" stroke="#a08c6a" stroke-dasharray="6 5" marker-end="url(#ghost)"/>
+      <path d="M760,372 C810,372 830,350 878,346" stroke="#a08c6a" stroke-dasharray="6 5" marker-end="url(#ghost)"/>
+      <path d="M760,372 C860,430 960,450 1030,446" stroke="#a08c6a" stroke-dasharray="6 5" marker-end="url(#ghost)"/>
+      <path d="M1000,232 C1040,232 1020,170 1040,150" stroke="#a08c6a" stroke-dasharray="6 5" marker-end="url(#ghost)"/>
+      <path d="M1000,232 C1060,250 1080,420 1080,428" stroke="#a08c6a" stroke-dasharray="6 5" marker-end="url(#ghost)"/>
+    </g>
+    <!-- written -->
+    <g filter="url(#lift)">
+      <rect x="630" y="130" width="130" height="44" rx="4" fill="#c9e4c5" stroke="#5a3e1b"/>
+      <rect x="630" y="240" width="130" height="44" rx="4" fill="#f4d9a6" stroke="#5a3e1b"/>
+      <rect x="630" y="350" width="130" height="44" rx="4" fill="#c7d8f0" stroke="#5a3e1b"/>
+      <rect x="880" y="210" width="120" height="44" rx="4" fill="#efc9d6" stroke="#5a3e1b"/>
+    </g>
+    <g fill="#2b1d0e">
+      <text x="695" y="158">Amber Well</text>
+      <text x="695" y="268">Ash Tithe</text>
+      <text x="695" y="378">Anchor Stair</text>
+      <text x="940" y="238">Bell Road</text>
+    </g>
+    <!-- not written yet -->
+    <g fill="#f6efdc" stroke="#a08c6a" stroke-width="1.8" stroke-dasharray="6 5">
+      <rect x="1032" y="112" width="118" height="44" rx="22"/>
+      <rect x="880" y="320" width="120" height="44" rx="22"/>
+      <rect x="1030" y="428" width="120" height="44" rx="22"/>
+    </g>
+    <g fill="#8a7653" font-style="italic">
+      <text x="1091" y="140">Dun Gate</text>
+      <text x="940" y="348">Cold Ledger</text>
+      <text x="1090" y="456">Eel Market</text>
+    </g>
+    <text x="890" y="510" font-size="14" font-style="italic" fill="#8a6a3a">dashed: cited, not yet written. Someone must.</text>
+  </g>
+
+  <!-- the alphabet: the turns -->
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="18" text-anchor="middle" fill="#8a6a3a">
+    <circle cx="97" cy="591" r="15" fill="#5a3e1b"/>
+    <text x="97" y="597" fill="#fbf6e9" font-weight="bold">A</text>
+    <circle cx="131" cy="591" r="15" fill="none" stroke="#5a3e1b" stroke-width="1.5"/>
+    <text x="131" y="597" fill="#5a3e1b" font-weight="bold">B</text>
+    <text x="165" y="597">C</text><text x="199" y="597">D</text><text x="233" y="597">E</text><text x="267" y="597">F</text><text x="301" y="597">G</text><text x="335" y="597">H</text><text x="369" y="597">I</text><text x="403" y="597">J</text><text x="437" y="597">K</text><text x="471" y="597">L</text><text x="505" y="597">M</text><text x="539" y="597">N</text><text x="573" y="597">O</text><text x="607" y="597">P</text><text x="641" y="597">Q</text><text x="675" y="597">R</text><text x="709" y="597">S</text><text x="743" y="597">T</text><text x="777" y="597">U</text><text x="811" y="597">V</text><text x="845" y="597">W</text>
+    <text x="887" y="597" font-size="15">XYZ</text>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b1d0e" text-anchor="end">
+    <text x="1120" y="586" font-style="italic">cite each other · never yourself</text>
+    <text x="1120" y="612" font-weight="bold" letter-spacing="1">#lexicon</text>
+  </g>
+</svg>

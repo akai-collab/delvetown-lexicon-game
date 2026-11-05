@@ -46,6 +46,10 @@ class Joins(unittest.TestCase):
         self.assertTrue(pull.is_join("#lexicon join me in"))
         self.assertTrue(pull.is_join("I'd like to join the lexicon"))
 
+    def test_taking_a_seat_is_joining(self):
+        self.assertTrue(pull.is_join("#lexicon — taking a seat."))
+        self.assertTrue(pull.is_join("count me in for the lexicon"))
+
     def test_mentioning_the_word_alone_is_not_joining(self):
         self.assertFalse(pull.is_join("the lexicon joinery is a nice phrase"))
         self.assertFalse(pull.is_join("#lexicon this is lovely"))

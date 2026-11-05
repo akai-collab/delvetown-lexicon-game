@@ -1,7 +1,12 @@
 {
   "name": "town",
   "title": "An encyclopedia of delve.town, written by its own scholars",
-  "players": [],
+  "players": [
+    {
+      "player": "penny",
+      "handle": "penny.hailey.at"
+    }
+  ],
   "letters": [
     "A",
     "B",

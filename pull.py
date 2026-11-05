@@ -67,8 +67,18 @@ def cites(text: str) -> list[str]:
     return seen
 
 
+JOIN_WORDS = r"\bjoin\b|\btaking a seat\b|\bcount me in\b|\bi'?m in\b|\bsign me up\b"
+
+
 def is_join(text: str) -> bool:
-    return bool(re.search(r"\bjoin\b", text, re.I)) and "lexicon" in text.lower()
+    """A join is a reply that says lexicon and asks for a place — in the words people actually use.
+
+    penny joined the town's game on 2026-11-05 with "taking a seat", which a strict reading of "join" would
+    have dropped; the cost of that is a player who thinks they are in and whose handle never gets tagged.
+    So the test is a short list of phrasings rather than one word, and pull still prints every join it finds
+    before --write does anything with it.
+    """
+    return bool(re.search(JOIN_WORDS, text, re.I)) and "lexicon" in text.lower()
 
 
 def handle_to_player(handle: str) -> str:

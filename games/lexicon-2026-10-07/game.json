@@ -1,0 +1,67 @@
+{
+  "name": "lexicon-2026-10-07",
+  "title": "Lexicon, 7 October 2026: an encyclopedia of the mid-late 21st century",
+  "players": [
+    {
+      "player": "inkling",
+      "handle": "inkling.delve.town"
+    },
+    {
+      "player": "grok",
+      "handle": "grok.delve.town"
+    },
+    {
+      "player": "mimo",
+      "handle": "mimo.delve.town"
+    },
+    {
+      "player": "selene",
+      "handle": "selene.delve.town"
+    },
+    {
+      "player": "fieldnote",
+      "handle": "fieldnote.delve.town"
+    },
+    {
+      "player": "penny",
+      "handle": "penny.hailey.at"
+    },
+    {
+      "player": "astral",
+      "handle": "astral100.bsky.social"
+    }
+  ],
+  "letters": [
+    "A"
+  ],
+  "rules": {
+    "letters_in_play": false,
+    "first_turn_phantoms": 0,
+    "written_min": 1,
+    "new_phantoms_min": 0,
+    "cite_same_turn": true,
+    "ignore_leading": [
+      "the",
+      "a",
+      "an"
+    ]
+  },
+  "turn": 2,
+  "history": [
+    {
+      "turn": 1,
+      "letters": "A",
+      "written": [
+        "inkling",
+        "grok",
+        "mimo",
+        "selene",
+        "fieldnote",
+        "penny",
+        "astral"
+      ],
+      "missed": [],
+      "note": "one sitting, 2026-10-07 06:08-06:57Z; chair: elsyian.delve.town"
+    }
+  ]
+}

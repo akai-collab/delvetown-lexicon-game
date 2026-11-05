@@ -42,6 +42,25 @@ class TurnOne(unittest.TestCase):
         self.assertTrue(any("does not start with A" in x for x in p), p)
 
 
+class OneSitting(unittest.TestCase):
+    """The 7 October variant: no letters, no turn rotation, one author may write several entries."""
+
+    def test_letters_out_of_play_lets_any_initial_through(self):
+        g = game(letters=["A"], letters_in_play=False, first_turn_phantoms=0)
+        self.assertEqual(problems(g, [entry("Bell Road", "ana", 1, "Cold Ledger")]), [])
+
+    def test_letters_out_of_play_lets_one_author_write_twice_in_a_turn(self):
+        g = game(letters=["A"], letters_in_play=False, first_turn_phantoms=0)
+        got = problems(g, [entry("Bell Road", "ana", 1, "Cold Ledger"),
+                           entry("Cold Ledger", "ana", 1, "Bell Road")])
+        self.assertFalse(any("already wrote" in x for x in got), got)
+
+    def test_a_phantom_is_still_caught_when_letters_decide_turns(self):
+        g = game(letters=["A"], first_turn_phantoms=0)
+        got = problems(g, [entry("Bell Road", "ana", 1, "Cold Ledger")])
+        self.assertTrue(any("does not start with A" in x for x in got), got)
+
+
 class LaterTurns(unittest.TestCase):
     def setUp(self):
         self.t1 = [entry("Ash Tithe", "ana", 1, "Bell Road", "Cold Ledger"),

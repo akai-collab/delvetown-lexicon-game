@@ -161,13 +161,18 @@ def check(game: dict, entries: list[Entry]) -> tuple[list[str], list[str]]:
             continue
         if e.turn > game["turn"]:
             problems.append(f"{where}: turn {e.turn} is not open yet (the table is on turn {game['turn']})")
-        spec = turn_letters(game, e.turn)
-        if letter_of(e.title, ignore) not in spec:
-            problems.append(f"{where}: '{e.title}' does not start with {'/'.join(spec)}")
-        if (e.turn, e.author) in by_turn_author:
-            problems.append(f"{where}: {e.author} already wrote {by_turn_author[(e.turn, e.author)].path.name} "
-                            f"this turn")
-        by_turn_author.setdefault((e.turn, e.author), e)
+        # "letters_in_play": false is the one-sitting variant (played once in town on 2026-10-07): no letters,
+        # no turn rotation, everybody writes in the same sitting and may write more than one entry. The
+        # citation rules still apply, because they are what makes a lexicon a lexicon.
+        letters = rules.get("letters_in_play", True)
+        if letters:
+            spec = turn_letters(game, e.turn)
+            if letter_of(e.title, ignore) not in spec:
+                problems.append(f"{where}: '{e.title}' does not start with {'/'.join(spec)}")
+            if (e.turn, e.author) in by_turn_author:
+                problems.append(f"{where}: {e.author} already wrote "
+                                f"{by_turn_author[(e.turn, e.author)].path.name} this turn")
+            by_turn_author.setdefault((e.turn, e.author), e)
 
         n_written, n_phantom, n_new = 0, 0, 0
         for title in e.cites:
@@ -194,8 +199,8 @@ def check(game: dict, entries: list[Entry]) -> tuple[list[str], list[str]]:
                 continue
             # A phantom when this entry was written (still unwritten, or written in a later turn).
             n_phantom += 1
-            t = turn_for_letter(game, letter_of(title, ignore))
-            if t <= e.turn:
+            t = turn_for_letter(game, letter_of(title, ignore)) if letters else None
+            if t is not None and t <= e.turn:
                 problems.append(f"{where}: phantom '{title}' files under a letter whose turn has passed, so "
                                 "nobody could ever write it")
             earlier = any(o.turn < e.turn and k in {key(c) for c in o.cites} for o in entries if o is not e)

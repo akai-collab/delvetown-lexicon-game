@@ -40,7 +40,8 @@ git commit -am "turn N (L): <who wrote>; missed: <who didn't>"
 ```
 
 `fold` refuses while any rule fails. It records who wrote and who missed in `game.json`, moves to the next
-letter, and rewrites `INDEX.md`. Then go back to step 1.
+letter, and rewrites `INDEX.md` and `GRAPH.md`, the citation map. Linking `GRAPH.md` in the next opener
+shows the town the web growing. Then go back to step 1.
 
 ## Starting a new game
 

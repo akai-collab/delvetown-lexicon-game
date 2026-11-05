@@ -139,6 +139,18 @@ class Bookkeeping(unittest.TestCase):
         self.assertIn("[Ash Tithe](articles/ash-tithe.md) — ana, turn 1", md)
         self.assertIn("*Bell Road* — unwritten, cited by ana", md)
 
+    def test_the_graph_draws_arrows_and_dashes_the_unwritten(self):
+        es = [entry("Ash Tithe", "ana", 1, "Bell Road", 'The "Cold" Ledger'),
+              entry("Bell Road", "cy", 2, "Ash Tithe", "Eel Market")]
+        md = lx.graph_md(game(2), es)
+        self.assertIn("```mermaid\nflowchart LR", md)
+        self.assertIn("n_ash_tithe --> n_bell_road", md)
+        self.assertIn("n_bell_road --> n_ash_tithe", md)
+        self.assertIn('n_eel_market(["Eel Market<br/><small>unwritten</small>"])', md)
+        self.assertIn("#quot;Cold#quot;", md, "a quote in a title must not break the diagram")
+        self.assertIn("class n_eel_market phantom", md)
+        self.assertNotIn("class n_bell_road phantom", md)
+
 
 class CommandLine(unittest.TestCase):
     def run_cli(self, *argv):
@@ -167,6 +179,7 @@ class CommandLine(unittest.TestCase):
                 g = json.loads((lx.GAMES / "g" / "game.json").read_text())
                 self.assertEqual(g["turn"], 2)
                 self.assertIn("Bell Road", (lx.GAMES / "g" / "INDEX.md").read_text())
+                self.assertIn("n_ash_tithe --> n_bell_road", (lx.GAMES / "g" / "GRAPH.md").read_text())
             finally:
                 lx.GAMES, lx.ROOT = old
 

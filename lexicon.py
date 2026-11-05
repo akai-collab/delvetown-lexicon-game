@@ -10,7 +10,7 @@ which later turns must fill in. The rules a turn has to keep are in check(); the
     python3 lexicon.py new --author X --title "..."   start an entry file for the current turn
     python3 lexicon.py check             every rule over every entry; exit 1 on a problem
     python3 lexicon.py fold              close the turn: check, record who wrote and who missed, advance
-    python3 lexicon.py index             rewrite INDEX.md
+    python3 lexicon.py index             rewrite INDEX.md and GRAPH.md (the citation map)
     python3 lexicon.py new-game NAME --players a:a.delve.town,b:b.delve.town
 
 Standard library only. Pass --game NAME when games/ holds more than one game.
@@ -327,6 +327,54 @@ def index_md(game: dict, entries: list[Entry]) -> str:
     return "\n".join(lines)
 
 
+def graph_md(game: dict, entries: list[Entry]) -> str:
+    """The citation map as a Mermaid flowchart, which GitHub draws in place.
+
+    An arrow runs from the entry that cites to the entry it cites. Written entries are solid boxes,
+    coloured by author; phantoms are dashed and grey until someone writes them.
+    """
+    def node(k: str) -> str:
+        return "n_" + k.replace("-", "_")
+
+    def label(text: str) -> str:
+        return text.replace('"', "#quot;")
+
+    authors = players(game)
+    palette = ["#f4d9a6", "#c9e4c5", "#c7d8f0", "#efc9d6", "#e2d4f0", "#f0e0c0", "#cfe8e8", "#e8d0c0"]
+    written = {e.key: e for e in entries}
+    lines = ["flowchart LR"]
+    for e in sorted(entries, key=lambda e: (e.turn, e.key)):
+        lines.append(f'    {node(e.key)}["{label(e.title)}<br/><small>{label(e.author)}, turn {e.turn}</small>"]')
+    for title in phantoms(game, entries):
+        lines.append(f'    {node(key(title))}(["{label(title)}<br/><small>unwritten</small>"])')
+    for e in sorted(entries, key=lambda e: (e.turn, e.key)):
+        for title in e.cites:
+            if key(title) != e.key:
+                lines.append(f"    {node(e.key)} --> {node(key(title))}")
+    for i, a in enumerate(authors):
+        lines.append(f"    classDef a{i} fill:{palette[i % len(palette)]},stroke:#555,color:#222")
+    lines.append("    classDef phantom fill:#eee,stroke:#999,stroke-dasharray:4 3,color:#777")
+    for e in entries:
+        if e.author in authors:
+            lines.append(f"    class {node(e.key)} a{authors.index(e.author)}")
+    for title in phantoms(game, entries):
+        lines.append(f"    class {node(key(title))} phantom")
+
+    name = game.get("title", game.get("name", "Lexicon"))
+    legend = ", ".join(a for a in authors if any(e.author == a for e in entries))
+    return "\n".join([
+        f"# {name}: who cites whom", "",
+        f"Turn {game['turn']} of {len(game['letters'])}: {len(written)} written, "
+        f"{len(phantoms(game, entries))} unwritten (dashed). An arrow points from an entry to one it cites. "
+        f"Boxes are coloured by author ({legend or 'nobody yet'}).", "",
+        "```mermaid", *lines, "```", ""])
+
+
+def write_pages(game_dir: pathlib.Path, game: dict, entries: list[Entry]) -> None:
+    (game_dir / "INDEX.md").write_text(index_md(game, entries), encoding="utf-8")
+    (game_dir / "GRAPH.md").write_text(graph_md(game, entries), encoding="utf-8")
+
+
 # --- command line ------------------------------------------------------------------------------------
 
 def pick_game(name: str | None) -> pathlib.Path:
@@ -354,7 +402,8 @@ def main(argv: list[str] | None = None) -> int:
     c = sub.add_parser("check")
     c.add_argument("--all", action="store_true", help="every game under games/")
     sub.add_parser("fold")
-    sub.add_parser("index")
+    sub.add_parser("index", help="rewrite INDEX.md and GRAPH.md")
+    sub.add_parser("graph", help="the same as index: rewrite INDEX.md and GRAPH.md")
     g = sub.add_parser("new-game")
     g.add_argument("name")
     g.add_argument("--players", required=True, help="player:handle,player:handle,…")
@@ -375,7 +424,7 @@ def main(argv: list[str] | None = None) -> int:
                 "rules": DEFAULT_RULES, "turn": 1, "history": []}
         (d / "articles").mkdir(parents=True)
         save_game(d, game)
-        (d / "INDEX.md").write_text(index_md(game, []), encoding="utf-8")
+        write_pages(d, game, [])
         print(f"created {d}")
         return 0
 
@@ -424,12 +473,12 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"refused: {exc}")
                 return 1
             save_game(game_dir, game)
-            (game_dir / "INDEX.md").write_text(index_md(game, entries), encoding="utf-8")
+            write_pages(game_dir, game, entries)
             print(summary)
             print(f"next: python3 lexicon.py open" + (f" --game {game_dir.name}" if args.game else ""))
-        elif args.cmd == "index":
-            (game_dir / "INDEX.md").write_text(index_md(game, entries), encoding="utf-8")
-            print(f"wrote {(game_dir / 'INDEX.md').relative_to(ROOT)}")
+        elif args.cmd in ("index", "graph"):
+            write_pages(game_dir, game, entries)
+            print(f"wrote {(game_dir / 'INDEX.md').relative_to(ROOT)} and GRAPH.md")
     return 1 if failed else 0
 
 

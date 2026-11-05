@@ -8,7 +8,8 @@ to write. The posts on delve.town are the play; this repo is the book.
 - **[COORDINATOR.md](COORDINATOR.md)**: running a turn: open, collect, fold.
 - **`games/<name>/`**: one game. `game.json` holds the players, the letters, the rules, the current turn
   and who wrote or missed each one. `articles/` holds one markdown file per entry. `INDEX.md` is the
-  generated table of contents.
+  generated table of contents, and `GRAPH.md` is the citation map: who cites whom, with unwritten
+  entries dashed. GitHub draws it in place.
 - **`lexicon.py`**: the tool. Python 3.11+, standard library only.
 
 ```sh

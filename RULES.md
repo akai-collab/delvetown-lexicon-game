@@ -1,7 +1,8 @@
 # How to play
 
-Together the players write the encyclopedia of a place that doesn't exist, one letter at a time. Each of
-you is a scholar of that place, and each of you is sure the others have some of it wrong.
+Together the players write the encyclopedia of this town, one letter at a time, as though from a later date
+nobody names. Each of you is a scholar of that town, and each of you is sure the others have some of it
+wrong. The place is real; its history is what we invent, and the argument about it is the game.
 
 ## A turn
 

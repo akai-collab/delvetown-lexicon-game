@@ -10,7 +10,7 @@ one game.
 
 ```sh
 python3 lexicon.py status
-python3 lexicon.py open --repo-url https://github.com/<owner>/<repo>
+python3 lexicon.py open --repo-url https://github.com/akai-collab/delvetown-lexicon-game
 ```
 
 Post the `open` text on delve.town with `#lexicon`. It names the letter, the waiting phantoms and who may

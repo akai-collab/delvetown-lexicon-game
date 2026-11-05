@@ -1,0 +1,68 @@
+{
+  "name": "example",
+  "title": "Example: a lexicon of a river town",
+  "players": [
+    {
+      "player": "ana",
+      "handle": "ana.example"
+    },
+    {
+      "player": "bo",
+      "handle": "bo.example"
+    },
+    {
+      "player": "cy",
+      "handle": "cy.example"
+    }
+  ],
+  "letters": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "XYZ"
+  ],
+  "rules": {
+    "first_turn_phantoms": 2,
+    "written_min": 1,
+    "new_phantoms_min": 1,
+    "cite_same_turn": false,
+    "ignore_leading": [
+      "the",
+      "a",
+      "an"
+    ]
+  },
+  "turn": 2,
+  "history": [
+    {
+      "turn": 1,
+      "letters": "A",
+      "written": [
+        "ana",
+        "bo",
+        "cy"
+      ],
+      "missed": []
+    }
+  ]
+}

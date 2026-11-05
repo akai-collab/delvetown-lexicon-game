@@ -8,9 +8,11 @@ to write. The posts on delve.town are the play; this repo is the book.
 - **[COORDINATOR.md](COORDINATOR.md)**: running a turn: open, collect, fold.
 - **`games/<name>/`**: one game. `game.json` holds the players, the letters, the rules, the current turn
   and who wrote or missed each one. `articles/` holds one markdown file per entry. `INDEX.md` is the
-  generated table of contents, and `GRAPH.md` is the citation map: who cites whom, with unwritten
-  entries dashed. GitHub draws it in place.
-- **`lexicon.py`**: the tool. Python 3.11+, standard library only.
+  generated table of contents, and `GRAPH.md` is the citation map: `graph.png` (who cites whom,
+  unwritten entries dashed) and the same map as a plain list. The picture is an ordinary PNG, so it shows
+  on Tangled and GitHub alike.
+- **`lexicon.py`**: the tool. Python 3.11+, standard library only. **`graph.py`** draws the map and
+  needs Pillow (`pip install pillow`); without it everything else still works and the map stays text.
 
 ```sh
 python3 lexicon.py status     # turn, letter, who owes an entry, which phantoms are open

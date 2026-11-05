@@ -1,6 +1,7 @@
 """The rules of a Lexicon turn, checked without git or the network: python3 -m unittest discover -s tests"""
 
 import contextlib
+import importlib.util
 import io
 import json
 import pathlib
@@ -139,18 +140,52 @@ class Bookkeeping(unittest.TestCase):
         self.assertIn("[Ash Tithe](articles/ash-tithe.md) — ana, turn 1", md)
         self.assertIn("*Bell Road* — unwritten, cited by ana", md)
 
-    def test_the_graph_draws_arrows_and_dashes_the_unwritten(self):
-        es = [entry("Ash Tithe", "ana", 1, "Bell Road", 'The "Cold" Ledger'),
+    def test_the_graph_text_marks_the_unwritten(self):
+        es = [entry("Ash Tithe", "ana", 1, "Bell Road", "Cold Ledger"),
               entry("Bell Road", "cy", 2, "Ash Tithe", "Eel Market")]
         md = lx.graph_md(game(2), es)
-        self.assertIn("```mermaid\nflowchart LR", md)
-        self.assertIn("n_ash_tithe --> n_bell_road", md)
-        self.assertIn("n_bell_road --> n_ash_tithe", md)
-        self.assertIn('n_eel_market(["Eel Market<br/><small>unwritten</small>"])', md)
-        self.assertIn("#quot;Cold#quot;", md, "a quote in a title must not break the diagram")
-        self.assertIn("class n_eel_market phantom", md)
-        self.assertNotIn("class n_bell_road phantom", md)
+        self.assertIn("![The citation map", md)
+        self.assertIn("- **Bell Road** (cy, turn 2) cites Ash Tithe, *Eel Market*", md)
+        self.assertNotIn("```", md, "no diagram syntax: Tangled shows code blocks as text")
+        self.assertNotIn("![", lx.graph_md(game(2), es, has_image=False))
 
+
+@unittest.skipUnless(importlib.util.find_spec("PIL"), "Pillow is not installed")
+class Picture(unittest.TestCase):
+    def setUp(self):
+        import graph
+        self.graph = graph
+        self.es = [entry("Ash Tithe", "ana", 1, "Bell Road", "Cold Ledger"),
+                   entry("Amber Well", "bo", 1, "Bell Road", "Dun Gate"),
+                   entry("Bell Road", "cy", 2, "Ash Tithe", "Eel Market")]
+
+    def test_columns_are_turns_and_phantoms_sit_under_their_letter(self):
+        plan = self.graph.layout(game(2), self.es)
+        n = plan["nodes"]
+        self.assertEqual(plan["turns"], [1, 2, 3, 4, 5])
+        self.assertEqual((n["ash-tithe"]["col"], n["bell-road"]["col"], n["dun-gate"]["col"]), (0, 1, 3))
+        self.assertTrue(n["bell-road"]["written"])
+        self.assertFalse(n["eel-market"]["written"])
+        self.assertIn(("bell-road", "ash-tithe", "cy"), plan["edges"])
+
+    def test_a_long_arrow_gets_a_slot_in_every_column_it_crosses(self):
+        plan = self.graph.layout(game(2), self.es)
+        chain = next(c for c, a in plan["paths"] if c[0] == "amber-well" and c[-1] == "dun-gate")
+        self.assertEqual(len(chain), 4, "A to D passes through B and C")
+        n = plan["nodes"]
+        self.assertEqual([n[k]["col"] for k in chain], [0, 1, 2, 3])
+        self.assertTrue(all(n[k].get("waypoint") for k in chain[1:-1]))
+
+    def test_it_draws_a_png_and_draws_it_the_same_twice(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a = self.graph.render(game(2), self.es, pathlib.Path(tmp) / "a.png")
+            b = self.graph.render(game(2), self.es, pathlib.Path(tmp) / "b.png")
+            self.assertEqual(a.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertEqual(a.read_bytes(), b.read_bytes(), "same files, same picture: no churn in git")
+
+    def test_an_empty_game_still_draws(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertTrue(self.graph.render(game(), [], pathlib.Path(tmp) / "g.png").exists())
 
 class CommandLine(unittest.TestCase):
     def run_cli(self, *argv):
@@ -179,7 +214,7 @@ class CommandLine(unittest.TestCase):
                 g = json.loads((lx.GAMES / "g" / "game.json").read_text())
                 self.assertEqual(g["turn"], 2)
                 self.assertIn("Bell Road", (lx.GAMES / "g" / "INDEX.md").read_text())
-                self.assertIn("n_ash_tithe --> n_bell_road", (lx.GAMES / "g" / "GRAPH.md").read_text())
+                self.assertIn("- **Ash Tithe** (ana, turn 1) cites *Bell Road*", (lx.GAMES / "g" / "GRAPH.md").read_text())
             finally:
                 lx.GAMES, lx.ROOT = old
 

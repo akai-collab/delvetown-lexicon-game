@@ -10,10 +10,10 @@ which later turns must fill in. The rules a turn has to keep are in check(); the
     python3 lexicon.py new --author X --title "..."   start an entry file for the current turn
     python3 lexicon.py check             every rule over every entry; exit 1 on a problem
     python3 lexicon.py fold              close the turn: check, record who wrote and who missed, advance
-    python3 lexicon.py index             rewrite INDEX.md and GRAPH.md (the citation map)
+    python3 lexicon.py index             rewrite INDEX.md, GRAPH.md and graph.png (the citation map)
     python3 lexicon.py new-game NAME --players a:a.delve.town,b:b.delve.town
 
-Standard library only. Pass --game NAME when games/ holds more than one game.
+Standard library only; the map picture (graph.py) needs Pillow. Pass --game NAME when games/ holds more than one game.
 """
 
 import argparse
@@ -327,52 +327,41 @@ def index_md(game: dict, entries: list[Entry]) -> str:
     return "\n".join(lines)
 
 
-def graph_md(game: dict, entries: list[Entry]) -> str:
-    """The citation map as a Mermaid flowchart, which GitHub draws in place.
+def graph_md(game: dict, entries: list[Entry], has_image: bool = True) -> str:
+    """GRAPH.md: the picture (graph.png, drawn by graph.py) and the same map as plain text.
 
-    An arrow runs from the entry that cites to the entry it cites. Written entries are solid boxes,
-    coloured by author; phantoms are dashed and grey until someone writes them.
+    The text is there for anyone reading without images, and so the map still exists where Pillow is
+    not installed. Plain markdown only: no diagram syntax, so it reads the same on Tangled and GitHub.
     """
-    def node(k: str) -> str:
-        return "n_" + k.replace("-", "_")
-
-    def label(text: str) -> str:
-        return text.replace('"', "#quot;")
-
-    authors = players(game)
-    palette = ["#f4d9a6", "#c9e4c5", "#c7d8f0", "#efc9d6", "#e2d4f0", "#f0e0c0", "#cfe8e8", "#e8d0c0"]
-    written = {e.key: e for e in entries}
-    lines = ["flowchart LR"]
-    for e in sorted(entries, key=lambda e: (e.turn, e.key)):
-        lines.append(f'    {node(e.key)}["{label(e.title)}<br/><small>{label(e.author)}, turn {e.turn}</small>"]')
-    for title in phantoms(game, entries):
-        lines.append(f'    {node(key(title))}(["{label(title)}<br/><small>unwritten</small>"])')
-    for e in sorted(entries, key=lambda e: (e.turn, e.key)):
-        for title in e.cites:
-            if key(title) != e.key:
-                lines.append(f"    {node(e.key)} --> {node(key(title))}")
-    for i, a in enumerate(authors):
-        lines.append(f"    classDef a{i} fill:{palette[i % len(palette)]},stroke:#555,color:#222")
-    lines.append("    classDef phantom fill:#eee,stroke:#999,stroke-dasharray:4 3,color:#777")
-    for e in entries:
-        if e.author in authors:
-            lines.append(f"    class {node(e.key)} a{authors.index(e.author)}")
-    for title in phantoms(game, entries):
-        lines.append(f"    class {node(key(title))} phantom")
-
     name = game.get("title", game.get("name", "Lexicon"))
-    legend = ", ".join(a for a in authors if any(e.author == a for e in entries))
-    return "\n".join([
-        f"# {name}: who cites whom", "",
-        f"Turn {game['turn']} of {len(game['letters'])}: {len(written)} written, "
-        f"{len(phantoms(game, entries))} unwritten (dashed). An arrow points from an entry to one it cites. "
-        f"Boxes are coloured by author ({legend or 'nobody yet'}).", "",
-        "```mermaid", *lines, "```", ""])
+    unwritten = phantoms(game, entries)
+    lines = [f"# {name}: who cites whom", "",
+             f"Turn {game['turn']} of {len(game['letters'])}: {len(entries)} written, {len(unwritten)} unwritten.", ""]
+    if has_image:
+        lines += ["![The citation map: entries by turn, arrows from each entry to what it cites](graph.png)", "",
+                  "Columns are turns. Boxes are coloured by author; dashed grey ones are cited but not yet written.", ""]
+    lines += ["## As text", ""]
+    written = {e.key for e in entries}
+    for e in sorted(entries, key=lambda e: (e.turn, e.title.lower())):
+        cites = ", ".join(t if key(t) in written else f"*{t}*" for t in e.cites) or "nothing"
+        lines.append(f"- **{e.title}** ({e.author}, turn {e.turn}) cites {cites}")
+    if unwritten:
+        lines += ["", "*Italic* titles are unwritten."]
+    return "\n".join(lines) + "\n"
 
 
-def write_pages(game_dir: pathlib.Path, game: dict, entries: list[Entry]) -> None:
+def write_pages(game_dir: pathlib.Path, game: dict, entries: list[Entry]) -> str:
+    """Rewrite INDEX.md, GRAPH.md and, when Pillow is installed, graph.png. Returns a note if the image was skipped."""
     (game_dir / "INDEX.md").write_text(index_md(game, entries), encoding="utf-8")
+    try:
+        import graph
+    except ImportError:
+        (game_dir / "GRAPH.md").write_text(graph_md(game, entries, has_image=(game_dir / "graph.png").exists()),
+                                           encoding="utf-8")
+        return "graph.png not redrawn: Pillow is not installed (pip install pillow)"
+    graph.render(game, entries, game_dir / "graph.png")
     (game_dir / "GRAPH.md").write_text(graph_md(game, entries), encoding="utf-8")
+    return ""
 
 
 # --- command line ------------------------------------------------------------------------------------
@@ -473,12 +462,16 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"refused: {exc}")
                 return 1
             save_game(game_dir, game)
-            write_pages(game_dir, game, entries)
+            note = write_pages(game_dir, game, entries)
             print(summary)
+            if note:
+                print(f"note: {note}")
             print(f"next: python3 lexicon.py open" + (f" --game {game_dir.name}" if args.game else ""))
         elif args.cmd in ("index", "graph"):
-            write_pages(game_dir, game, entries)
-            print(f"wrote {(game_dir / 'INDEX.md').relative_to(ROOT)} and GRAPH.md")
+            note = write_pages(game_dir, game, entries)
+            print(f"wrote {(game_dir / 'INDEX.md').relative_to(ROOT)}, GRAPH.md" + ("" if note else " and graph.png"))
+            if note:
+                print(f"note: {note}")
     return 1 if failed else 0
 
 

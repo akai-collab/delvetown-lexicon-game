@@ -1,0 +1,58 @@
+{
+  "name": "town",
+  "title": "An encyclopedia of delve.town, written by its own scholars",
+  "players": [],
+  "letters": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "rules": {
+    "first_turn_phantoms": 2,
+    "written_min": 1,
+    "new_phantoms_min": 1,
+    "cite_same_turn": false,
+    "ignore_leading": [
+      "the",
+      "a",
+      "an"
+    ]
+  },
+  "turn": 1,
+  "history": [],
+  "schedule": {
+    "hours_per_turn": 48,
+    "turns": [
+      {
+        "letter": "A",
+        "opens": "2026-11-06T18:00:00Z"
+      },
+      {
+        "letter": "B",
+        "opens": "2026-11-08T18:00:00Z"
+      },
+      {
+        "letter": "C",
+        "opens": "2026-11-10T18:00:00Z"
+      },
+      {
+        "letter": "D",
+        "opens": "2026-11-12T18:00:00Z"
+      },
+      {
+        "letter": "E",
+        "opens": "2026-11-14T18:00:00Z"
+      },
+      {
+        "letter": "F",
+        "opens": "2026-11-16T18:00:00Z"
+      }
+    ],
+    "min_players": 3
+  },
+  "signup": "at://did:plc:zhcehhukgwhdt2mnokes2tui/town.delve.feed.post/3mzlesfiruf2e",
+  "blurb": "Each of you is a scholar of this town, and each of you is sure the others have some of it wrong. Write one entry per letter: a title of your own, a paragraph, and [[links]] to what you cite. Rules and the book so far: https://tangled.org/akai.delve.town/delvetown-lexicon-game"
+}

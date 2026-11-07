@@ -144,6 +144,15 @@ class Bookkeeping(unittest.TestCase):
         self.assertIn("@ana.delve.town cy", text)
         self.assertNotIn("bo", text.split("Still to write:")[1])
 
+    def test_a_muted_player_is_not_tagged_but_still_owes(self):
+        g = game()
+        g["muted"] = ["ana.delve.town"]           # the fixture only gives ana a handle
+        es = [entry("Ash Tithe", "bo", 1, "Bell Road", "Cold Ledger")]
+        text = lx.opener(g, es)
+        self.assertIn("Still to write: cy", text)
+        self.assertNotIn("@ana.delve.town", text)
+        self.assertIn("ana", lx.status(g, es)["owing"])
+
     def test_fold_records_the_missed_and_advances(self):
         g, line = lx.fold(game(), [entry("Ash Tithe", "ana", 1, "Bell Road", "Cold Ledger")])
         self.assertEqual(g["turn"], 2)

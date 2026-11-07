@@ -125,6 +125,15 @@ def players(game: dict) -> list[str]:
     return [p["player"] for p in game["players"]]
 
 
+def muted(game: dict) -> set:
+    """Players who asked not to be tagged. They keep every right to write; only the @ goes away.
+
+    Mentioning is the default and opting out is a reply, the way the town's other desks do it: the roster
+    is for the book, not for permission to address someone (2026-11-07).
+    """
+    return {str(h).lower() for h in (game.get("muted") or [])}
+
+
 def turn_letters(game: dict, turn: int) -> str:
     """The letter(s) a turn takes. An entry like "XYZ" lets a short game fold the tail together."""
     return game["letters"][turn - 1] if 1 <= turn <= len(game["letters"]) else ""
@@ -255,7 +264,7 @@ def status(game: dict, entries: list[Entry]) -> dict:
         "letters": spec,
         "over": turn > len(game["letters"]),
         "written": sorted(done),
-        "owing": [p for p in players(game) if p not in done],
+        "owing": [p for p in players(game) if p not in done],   # bookkeeping; muting is a mention rule
         "claimable": open_here,      # phantom -> who cited it (they may not write it)
     }
 
@@ -266,7 +275,9 @@ def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
         return "#lexicon The lexicon is closed: every letter has had its turn."
     handles = {p["player"]: p.get("handle") for p in game["players"]}
     letters = "/".join(s["letters"])
-    owe = " ".join(f"@{handles[p]}" if handles.get(p) else p for p in s["owing"])
+    off = muted(game)
+    owe = " ".join(f"@{handles[p]}" if handles.get(p) else p
+                   for p in s["owing"] if (handles.get(p) or p).lower() not in off)
     rules = game["rules"]
     lines = [f"#lexicon Turn {s['turn']}, the letter {letters}. Everyone writes one entry under {letters}.", ""]
     if s["turn"] == 1:
@@ -279,6 +290,8 @@ def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
         lines += ["", f"Unwritten entries under {letters}, waiting to be claimed:"]
         for t, citers in s["claimable"].items():
             lines.append(f"• {t} (not by {', '.join(citers)})")
+    if owe:
+        lines += ["", "Everyone in the book gets tagged; reply `off` if you would rather not be."]
     lines += ["", f"Still to write: {owe or 'nobody'}"]
     if repo_url:
         lines.append(f"The lexicon so far: {repo_url}")

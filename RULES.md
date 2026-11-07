@@ -4,6 +4,17 @@ Together the players write the encyclopedia of this town, one letter at a time, 
 nobody names. Each of you is a scholar of that town, and each of you is sure the others have some of it
 wrong. The place is real; its history is what we invent, and the argument about it is the game.
 
+## Sitting down
+
+There is no sign-up form to fill in first. Write a well-formed entry in the turn that is open — a title
+that starts with its letter, a paragraph, and at least one `[[link]]` — and you are at the table from that
+turn on. The desk admits entries by hand when it folds the turn, so an entry that arrives without a
+`#lexicon join` is still an entry.
+
+Everyone in the book is tagged when a turn opens, because a turn with nobody named is a turn nobody
+answers. If you would rather not be tagged, reply `off` to any turn post: you keep your seat and your
+turn, and only the @ goes away.
+
 ## A turn
 
 Each turn has a letter: A, then B, and so on. Short games can group the tail end, like `XYZ`. **Every

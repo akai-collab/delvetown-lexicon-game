@@ -87,11 +87,19 @@ class Taking(unittest.TestCase):
         self.assertEqual(len(dupes), 1)
         self.assertEqual(dupes[0][0], "ana")
 
-    def test_a_stranger_writing_an_entry_is_skipped_not_taken(self):
-        takes, _, skips, _ = pull.classify(
+    def test_a_stranger_writing_a_well_formed_entry_is_an_admit_not_a_skip(self):
+        # juno filed a real entry in turn A without a join post (2026-11-07): the entry is the ask, so it
+        # comes back marked for a hand admission rather than being dropped as "not on the roster".
+        takes, joins, skips, _ = pull.classify(
             [r("cy.delve.town", "**Ash Tithe**\n\n[[Bell Road]]")], ROSTER, 1, "A", [])
         self.assertEqual(takes, [])
-        self.assertIn("not on the roster", skips[0][1])
+        self.assertEqual(skips, [])
+        self.assertEqual(len(joins), 1)
+        self.assertTrue(joins[0].get("_admit"))
+
+    def test_a_bare_off_asks_not_to_be_tagged(self):
+        _, _, skips, _ = pull.classify([r("ana.delve.town", "off")], ROSTER, 1, "A", [])
+        self.assertIn("asks not to be tagged", skips[0][1])
 
     def test_a_stranger_asking_to_join_is_a_join(self):
         _, joins, _, _ = pull.classify([r("cy.delve.town", "#lexicon join please")], ROSTER, 1, "A", [])

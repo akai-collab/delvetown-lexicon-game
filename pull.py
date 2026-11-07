@@ -96,12 +96,23 @@ def classify(replies, roster, turn, letters, ignore):
     for r in replies:
         player = roster.get(r["handle"])
         title = title_of(r["text"])
+        if (r["text"] or "").strip().strip(".!").lower() in ("off", "unsubscribe", "untag", "stop tagging me"):
+            skips.append((r, "asks not to be tagged — reply 'off'"))
         refs = cites(r["text"])
+        if (r["text"] or "").strip().strip(".!").lower() in ("off", "unsubscribe", "untag", "stop tagging me"):
+            continue
         if player is None:
             if is_join(r["text"]):
                 joins.append(r)
+            elif title and refs and lx.letter_of(title, ignore) in letters:
+                # A well-formed entry is the strongest ask a player can make: the join instruction only
+                # ever reached whoever read the announcement first (2026-11-07, juno filed an entry under
+                # turn A and was skipped as "not on the roster"). Carried in `joins` with a mark, so a
+                # session admits it by hand and the caller's shape stays the same.
+                r["_admit"] = True
+                joins.append(r)
             elif title and refs:
-                skips.append((r, "an entry, but this account is not on the roster — ask it to join"))
+                skips.append((r, "an entry whose title files outside this turn's letters"))
             else:
                 skips.append((r, "not on the roster, not a join"))
             continue
@@ -158,7 +169,8 @@ def main(argv=None) -> int:
     for r, title, refs, player in takes:
         print("take: %-34s %-10s turn %d  cites %s" % (title[:34], player, turn, ", ".join(refs[:3])))
     for r in joins:
-        print("join: %-34s (%s)" % (r["handle"], r["text"].replace("\n", " ")[:60]))
+        kind = "admit" if r.get("_admit") else "join"
+        print("%s: %-34s (%s)" % (kind, r["handle"], " ".join(r["text"].split())[:70]))
     for player, got in dupes:
         print("dupe: %s wrote %d entries this turn (%s) — pick one; none were taken"
               % (player, len(got), ", ".join("'%s'" % t for _, t, _ in got)))

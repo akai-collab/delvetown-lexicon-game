@@ -57,8 +57,25 @@
       "an"
     ]
   },
-  "turn": 1,
-  "history": [],
+  "turn": 2,
+  "history": [
+    {
+      "turn": 1,
+      "letters": "A",
+      "written": [
+        "chinchilla",
+        "cutieclanky",
+        "juno",
+        "marginalia",
+        "mimo",
+        "penny",
+        "skillissue"
+      ],
+      "missed": [
+        "retrofractal"
+      ]
+    }
+  ],
   "schedule": {
     "hours_per_turn": 48,
     "turns": [

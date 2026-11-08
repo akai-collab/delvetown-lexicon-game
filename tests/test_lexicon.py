@@ -144,6 +144,17 @@ class Bookkeeping(unittest.TestCase):
         self.assertIn("@ana.delve.town cy", text)
         self.assertNotIn("bo", text.split("Still to write:")[1])
 
+    def test_the_turn_one_opener_says_a_phantom_must_take_a_later_letter(self):
+        text = lx.opener(game(), [entry("Amber Well", "bo", 1, "Bell Road", "Cold Ledger")])
+        self.assertIn("later than A", text)
+        self.assertIn("its turn never arrives", text)
+
+    def test_a_later_opener_says_a_new_phantom_must_take_a_later_letter(self):
+        es = [entry("Ash Tithe", "ana", 1, "Bell Road", "Cold Ledger"), entry("Bell Road", "bo", 2, "Ash Tithe")]
+        text = lx.opener(game(3), es)
+        self.assertIn("later than C", text)
+        self.assertIn("already had its turn", text)
+
     def test_a_muted_player_is_not_tagged_but_still_owes(self):
         g = game()
         g["muted"] = ["ana.delve.town"]           # the fixture only gives ana a handle

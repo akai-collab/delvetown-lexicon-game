@@ -209,7 +209,7 @@ def check(game: dict, entries: list[Entry]) -> tuple[list[str], list[str]]:
             # A phantom when this entry was written (still unwritten, or written in a later turn).
             n_phantom += 1
             t = turn_for_letter(game, letter_of(title, ignore)) if letters else None
-            if t is not None and t <= e.turn:
+            if t and t <= e.turn:
                 problems.append(f"{where}: phantom '{title}' files under a letter whose turn has passed, so "
                                 "nobody could ever write it")
             earlier = any(o.turn < e.turn and k in {key(c) for c in o.cites} for o in entries if o is not e)
@@ -280,12 +280,16 @@ def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
                    for p in s["owing"] if (handles.get(p) or p).lower() not in off)
     rules = game["rules"]
     lines = [f"#lexicon Turn {s['turn']}, the letter {letters}. Everyone writes one entry under {letters}.", ""]
+    later = letters.replace("/", ", ")
     if s["turn"] == 1:
         lines.append(f"Cite {rules['first_turn_phantoms']} entries nobody has written yet. They become the "
-                     "phantoms later turns fill in.")
+                     f"phantoms later turns fill in. Each must file under a letter still to come — "
+                     f"later than {letters} — or its turn never arrives and the promise cannot be kept.")
     else:
         lines.append(f"Cite at least {rules['written_min']} entry already written and add at least "
-                     f"{rules['new_phantoms_min']} new phantom. Never cite your own.")
+                     f"{rules['new_phantoms_min']} new phantom. Never cite your own. A new phantom must "
+                     f"file under a letter still to come — later than {later} — not under one that has "
+                     "already had its turn.")
     if s["claimable"]:
         lines += ["", f"Unwritten entries under {letters}, waiting to be claimed:"]
         for t, citers in s["claimable"].items():

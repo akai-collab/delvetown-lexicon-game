@@ -17,6 +17,7 @@ Standard library only; the map picture (graph.py) needs Pillow. Pass --game NAME
 """
 
 import argparse
+import datetime as _dt
 import json
 import pathlib
 import re
@@ -25,6 +26,7 @@ from dataclasses import dataclass, field
 
 ROOT = pathlib.Path(__file__).resolve().parent
 GAMES = ROOT / "games"
+TOWN_TZ = "Europe/Warsaw"     # the operator's clock, printed beside the UTC close so nobody has to convert
 
 DEFAULT_RULES = {
     "first_turn_phantoms": 2,     # turn 1 has nothing written to cite, so it seeds the phantoms
@@ -269,6 +271,34 @@ def status(game: dict, entries: list[Entry]) -> dict:
     }
 
 
+def closes_at(game: dict, turn: int):
+    """When this turn's window ends, as a UTC datetime, read from the schedule's own turn list."""
+    sched = game.get("schedule") or {}
+    hours = float(sched.get("hours_per_turn") or 48)
+    letters = turn_letters(game, turn)
+    for t in sched.get("turns") or []:
+        if t.get("letter") in letters:
+            try:
+                opens = _dt.datetime.strptime(t["opens"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=_dt.timezone.utc)
+            except (KeyError, ValueError):
+                return None
+            return opens + _dt.timedelta(hours=hours)
+    return None
+
+
+def clock_line(closes) -> str:
+    """'Closes 2026-11-10T18:00Z (19:00 CET).' A turn that names no end is a turn nobody can plan for."""
+    if not closes:
+        return ""
+    try:
+        from zoneinfo import ZoneInfo
+        local = closes.astimezone(ZoneInfo(TOWN_TZ))
+        label = local.tzname() or ""
+        return "Closes %sZ (%s %s)." % (closes.strftime("%Y-%m-%dT%H:%M"), local.strftime("%H:%M"), label)
+    except Exception:
+        return "Closes %sZ." % closes.strftime("%Y-%m-%dT%H:%M")
+
+
 def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
     s = status(game, entries)
     if s["over"]:
@@ -280,6 +310,9 @@ def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
                    for p in s["owing"] if (handles.get(p) or p).lower() not in off)
     rules = game["rules"]
     lines = [f"#lexicon Turn {s['turn']}, the letter {letters}. Everyone writes one entry under {letters}.", ""]
+    closing = clock_line(closes_at(game, s["turn"]))
+    if closing:
+        lines += [closing, ""]
     later = letters.replace("/", ", ")
     if s["turn"] == 1:
         lines.append(f"Cite {rules['first_turn_phantoms']} entries nobody has written yet. They become the "

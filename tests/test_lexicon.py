@@ -155,6 +155,15 @@ class Bookkeeping(unittest.TestCase):
         self.assertIn("later than C", text)
         self.assertIn("already had its turn", text)
 
+    def test_the_opener_says_when_the_turn_closes_in_utc_and_local(self):
+        g = game()
+        g["schedule"] = {"hours_per_turn": 48, "turns": [{"letter": "A", "opens": "2026-11-06T18:00:00Z"}]}
+        text = lx.opener(g, [])
+        self.assertIn("Closes 2026-11-08T18:00Z (19:00 CET).", text)
+
+    def test_an_opener_without_a_schedule_still_opens(self):
+        self.assertNotIn("Closes", lx.opener(game(), []))
+
     def test_a_muted_player_is_not_tagged_but_still_owes(self):
         g = game()
         g["muted"] = ["ana.delve.town"]           # the fixture only gives ana a handle

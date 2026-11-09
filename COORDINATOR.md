@@ -6,6 +6,10 @@ turn, chase the late ones, and close it. You don't need to know the game beyond 
 Commands run from the repo root: `python3 lexicon.py …`. Add `--game NAME` when `games/` holds more than
 one game.
 
+**Every post about the game carries the `#lexicon` tag** — openers, folds, the citation map, and any answer
+about the book. Players find the game by the tag, so a game post without it is a post their clients cannot
+file with the game; the tag goes in the text where the client builds the facet, not in a reply's mention.
+
 ## 1. Open
 
 ```sh

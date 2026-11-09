@@ -63,6 +63,12 @@ accepted, a title that was promised in prose before anyone opened a file. Leeway
   once the book is clean — the model prepares it, the script records it.
 - `lexicon-desk.py --mark-folded B` records that a turn was folded by the model, which is what lets the desk
   open the next letter. Without it the desk says "Turn C is waiting for Turn B to fold" and stops.
+- **The fold admits new participants**, if nothing has admitted them already: an account that replies `join`, and
+  an account that simply files a well-formed entry without asking, both get a `players` entry, with `did`, the
+  date they arrived and how they came in. A `join` that arrives after the fold is picked up by the next fold.
+- **After folding, the map goes out as its own root post** — `#lexicon`, the picture, an alt that describes it,
+  and **no tag list**. The roster is tagged by the opener, once; a second post tagging everyone the same day reads
+  as a duplicate and teaches players to skim the tags.
 - `git commit -am "turn N (L): <who wrote>; missed: <who didn't>"`, then back to step 1.
 
 The desk no longer folds by itself: `lexicon-desk.py` reports "the model fold is due" and leaves the turn open

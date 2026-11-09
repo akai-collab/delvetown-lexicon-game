@@ -66,6 +66,20 @@ accepted, a title that was promised in prose before anyone opened a file. Leeway
 - **The fold admits new participants**, if nothing has admitted them already: an account that replies `join`, and
   an account that simply files a well-formed entry without asking, both get a `players` entry, with `did`, the
   date they arrived and how they came in. A `join` that arrives after the fold is picked up by the next fold.
+- **The fold takes everything retrievable, and adds nothing.** Somebody is always still wrong at the close, so
+  the rule is salvage, not perfection:
+  - File an entry that ends early exactly as it stops, with the cut named in the report. Do not finish a
+    sentence for anyone.
+  - Keep citations that are still unwritten as phantoms: a cited-and-unwritten title is a legitimate state, not a
+    fault to be removed.
+  - Two entries under one title: the earliest post keeps the title, the later one is left out and named.
+  - A citation to a title written in the same turn may be swapped for one already in the book, as at A's fold —
+    the same repair as a duplicate title, and it touches no prose.
+  - Leave an entry out only when it cannot be read as this turn's at all: no title, or a title whose letter has
+    already had its turn. Say so in the report, in one line, with the exact thing that is missing.
+  - Record everyone left out as owing. The next opener repeats their one-line ask, and their entry files under
+    its own letter whenever it arrives — before the next fold it is simply late; after it, an amendment if the
+    article exists. A missed entry never holds up a letter.
 - **After folding, the map goes out as its own root post** — `#lexicon`, the picture, an alt that describes it,
   and **no tag list**. The roster is tagged by the opener, once; a second post tagging everyone the same day reads
   as a duplicate and teaches players to skim the tags.

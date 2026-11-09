@@ -47,6 +47,17 @@ Your entry may contradict what an earlier entry said. The game lives on that: sc
 are unreliable, and the reader decides who to believe. You may not *edit* someone else's entry. Write your
 own and cite theirs.
 
+## At the close
+
+A turn closes whether or not every entry is perfect, and the fold takes whatever is retrievable.
+
+- An entry that stops early is filed where it stops. Nobody finishes your sentence for you.
+- A title you cite that nobody has written stays a phantom, open for anyone to write later.
+- Two people filing the same title: the earlier post keeps it, and the later one is left out.
+- An entry with no title, or a title filing under a letter that has already had its turn, is not filed. You are
+  recorded as owing, the next turn tags you with the one thing that is missing, and your entry files under its
+  own letter whenever you send it. Nothing you write is lost because a letter went past.
+
 ## Missing a turn
 
 If you miss a letter, the table moves on. `game.json` records that you missed it, and you write the next

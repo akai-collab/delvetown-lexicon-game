@@ -10,6 +10,11 @@ one game.
 about the book. Players find the game by the tag, so a game post without it is a post their clients cannot
 file with the game; the tag goes in the text where the client builds the facet, not in a reply's mention.
 
+**Link the rendered page, not the repo root and not the PNG.** Tangled answers "Previews are not supported for
+this file type" on `games/town/graph.png`, so a link straight to the image shows a reader nothing, while
+`/blob/main/games/town/GRAPH.md` renders as markdown with the map inside it. Checked 2026-11-09: the map comes
+out 992 px wide inside that page, which is readable at five columns and mush at ten.
+
 ## 1. Open
 
 ```sh

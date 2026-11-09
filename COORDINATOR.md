@@ -15,42 +15,58 @@ this file type" on `games/town/graph.png`, so a link straight to the image shows
 `/blob/main/games/town/GRAPH.md` renders as markdown with the map inside it. Checked 2026-11-09: the map comes
 out 992 px wide inside that page, which is readable at five columns and mush at ten.
 
-## 1. Open
+## 1. Open — day 0
 
 ```sh
 python3 lexicon.py status
-python3 lexicon.py open --repo-url https://github.com/akai-collab/delvetown-lexicon-game
+python3 lexicon.py open --repo-url https://tangled.org/akai.delve.town/delvetown-lexicon-game/blob/main/games/town/GRAPH.md
 ```
 
-Post the `open` text on delve.town with `#lexicon`. It names the letter, the waiting phantoms and who may
-write them, and tags everyone who owes an entry.
+Post the `open` text on delve.town with `#lexicon`. The announcement has to carry four things, and the
+generated text already carries three of them:
 
-## 2. Collect
+- the letter, the rules for this turn, and the phantoms waiting to be claimed;
+- **when the turn ends, in UTC and only UTC** — `Closes 2026-11-10T18:00Z.` A second clock beside it invites a
+  reader to argue about whose it is; one number converts anywhere. Turn A went out with no close date at all,
+  and turn B's carried a local-time aside it did not need;
+- **everyone tagged**, so the invitation arrives as a mention and not as scenery;
+- the way off the list, in roughly these words: *write `off` and you come off the list*. Opting out removes the
+  @, never the right to write.
 
-Each player either:
+Link the rendered page (`…/blob/main/games/town/GRAPH.md`), not the repo root, and never the PNG.
 
-- **opens a pull request** with one new file. Running `python3 lexicon.py new --author ana --title "Bell
-  Road"` creates the file with the header filled in; or
-- **posts their entry on delve.town**. Then you copy it in word for word, in a file made with the same
-  `new` command, credited to them.
+## 1b. While the turn is open — submissions
 
-Every pull request runs `check`. If it fails, the message says which rule was broken and in which file.
-Tell the player; don't fix their writing yourself. A typo in a `[[link]]` is fine to point out.
+Each player either **opens a pull request** with one new file (`python3 lexicon.py new --author ana --title
+"Bell Road"` fills the header in), or **posts the entry on delve.town**, in which case the desk copies it in
+word for word into a file made with the same command, credited to them. Every pull request runs `check`; when
+it fails the message names the rule and the file, and the player is told, not corrected. A typo in a `[[link]]`
+is fair to point out.
 
-Nudge anyone still owing after a day. A reasonable deadline is two to three days per letter.
+## 2. Day 1 — the report
 
-## 3. Fold
+Twenty-four hours in, the desk prints how the turn looks — who has written, who has not, which posts do not
+parse as entries — to the operator's thread. The operator decides who gets chased; that decision is not
+automated yet, and the chase is where corrections come from: a player who is told their citation is wrong
+often fixes it by replying under their own reply rather than editing the entry into shape. The report job is
+`lexicon-day-one.py`, which prints only when the open turn is 22–30 hours old.
 
-When everyone has written, or the deadline has passed:
+## 3. Day 3 — the fold, done by reading the thread
 
-```sh
-python3 lexicon.py fold
-git commit -am "turn N (L): <who wrote>; missed: <who didn't>"
-```
+The turn is closed by a model reading everything written in the thread, not by `lexicon.py fold`. The script
+trips on the ordinary case: an entry posted as a reply to a reply, a correction issued after the entry was
+accepted, a title that was promised in prose before anyone opened a file. Leeway is the point of using a reader.
 
-`fold` refuses while any rule fails. It records who wrote and who missed in `game.json`, moves to the next
-letter, and rewrites `INDEX.md` and `GRAPH.md`, the citation map. Linking `GRAPH.md` in the next opener
-shows the town the web growing. Then go back to step 1.
+- `pull.py --game town --post <opener-uri>` collects the replies; the model then reads them, including
+  subthreads under a reply, and folds the turn with what it has judged to be entries.
+- `lexicon.py check` still runs on the result, and `lexicon.py fold` is what writes the fold into `game.json`
+  once the book is clean — the model prepares it, the script records it.
+- `lexicon-desk.py --mark-folded B` records that a turn was folded by the model, which is what lets the desk
+  open the next letter. Without it the desk says "Turn C is waiting for Turn B to fold" and stops.
+- `git commit -am "turn N (L): <who wrote>; missed: <who didn't>"`, then back to step 1.
+
+The desk no longer folds by itself: `lexicon-desk.py` reports "the model fold is due" and leaves the turn open
+unless it is given `--fold` explicitly.
 
 ## Starting a new game
 

@@ -155,11 +155,13 @@ class Bookkeeping(unittest.TestCase):
         self.assertIn("later than C", text)
         self.assertIn("already had its turn", text)
 
-    def test_the_opener_says_when_the_turn_closes_in_utc_and_local(self):
+    def test_the_opener_says_when_the_turn_closes_in_utc_and_nothing_else(self):
         g = game()
         g["schedule"] = {"hours_per_turn": 48, "turns": [{"letter": "A", "opens": "2026-11-06T18:00:00Z"}]}
         text = lx.opener(g, [])
-        self.assertIn("Closes 2026-11-08T18:00Z (19:00 CET).", text)
+        self.assertIn("Closes 2026-11-08T18:00Z.", text)
+        self.assertNotIn("CET", text)
+        self.assertNotIn("(19:00", text)
 
     def test_an_opener_without_a_schedule_still_opens(self):
         self.assertNotIn("Closes", lx.opener(game(), []))

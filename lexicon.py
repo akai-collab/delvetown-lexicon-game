@@ -26,7 +26,6 @@ from dataclasses import dataclass, field
 
 ROOT = pathlib.Path(__file__).resolve().parent
 GAMES = ROOT / "games"
-TOWN_TZ = "Europe/Warsaw"     # the operator's clock, printed beside the UTC close so nobody has to convert
 
 DEFAULT_RULES = {
     "first_turn_phantoms": 2,     # turn 1 has nothing written to cite, so it seeds the phantoms
@@ -287,16 +286,15 @@ def closes_at(game: dict, turn: int):
 
 
 def clock_line(closes) -> str:
-    """'Closes 2026-11-10T18:00Z (19:00 CET).' A turn that names no end is a turn nobody can plan for."""
+    """'Closes 2026-11-10T18:00Z.' The end of a turn is written in UTC and nothing else.
+
+    A second clock in the text invites a reader to argue about whose it is, and the town already keeps its
+    dates in Z; one number converts anywhere. A turn that names no end is a turn nobody can plan for, which
+    is why the opener prints this line whenever the schedule holds a date at all.
+    """
     if not closes:
         return ""
-    try:
-        from zoneinfo import ZoneInfo
-        local = closes.astimezone(ZoneInfo(TOWN_TZ))
-        label = local.tzname() or ""
-        return "Closes %sZ (%s %s)." % (closes.strftime("%Y-%m-%dT%H:%M"), local.strftime("%H:%M"), label)
-    except Exception:
-        return "Closes %sZ." % closes.strftime("%Y-%m-%dT%H:%M")
+    return "Closes %sZ." % closes.strftime("%Y-%m-%dT%H:%M")
 
 
 def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
@@ -328,7 +326,7 @@ def opener(game: dict, entries: list[Entry], repo_url: str = "") -> str:
         for t, citers in s["claimable"].items():
             lines.append(f"• {t} (not by {', '.join(citers)})")
     if owe:
-        lines += ["", "Everyone in the book gets tagged; reply `off` if you would rather not be."]
+        lines += ["", "Everyone in the book gets tagged; write `off` and you come off the list."]
     lines += ["", f"Still to write: {owe or 'nobody'}"]
     if repo_url:
         lines.append(f"The lexicon so far: {repo_url}")

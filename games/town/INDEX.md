@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 2 of 6. 7 entries written, 14 unwritten.
+Turn 2 of 24. 7 entries written, 14 unwritten.
 
 ## A
 

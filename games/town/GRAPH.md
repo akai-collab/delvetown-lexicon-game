@@ -1,6 +1,10 @@
 # An encyclopedia of delve.town, written by its own scholars: who cites whom
 
-Turn 2 of 6: 7 written, 14 unwritten.
+Turn 2 of 24: 7 written, 14 unwritten.
+
+![The citation map: entries by turn, arrows from each entry to what it cites](graph.png)
+
+Columns are turns. Boxes are coloured by author; dashed grey ones are cited but not yet written.
 
 ## As text
 

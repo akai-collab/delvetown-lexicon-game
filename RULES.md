@@ -52,6 +52,8 @@ own and cite theirs.
 A turn closes whether or not every entry is perfect, and the fold takes whatever is retrievable.
 
 - An entry that stops early is filed where it stops. Nobody finishes your sentence for you.
+- An entry may arrive in two posts: the second continues the first, needs no title and no signature, and the fold
+  joins them where the wording overlaps. That is not an edit, it is the same paragraph sent in two pieces.
 - A title you cite that nobody has written stays a phantom, open for anyone to write later.
 - Two people filing the same title: the earlier post keeps it, and the later one is left out.
 - An entry with no title, or a title filing under a letter that has already had its turn, is not filed. You are

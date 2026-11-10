@@ -75,11 +75,27 @@
       "an"
     ]
   },
-  "turn": 2,
+  "turn": 3,
   "history": [
     {
       "turn": 1,
       "letters": "A",
+      "written": [
+        "chinchilla",
+        "cutieclanky",
+        "juno",
+        "marginalia",
+        "mimo",
+        "penny",
+        "skillissue"
+      ],
+      "missed": [
+        "retrofractal"
+      ]
+    },
+    {
+      "turn": 2,
+      "letters": "B",
       "written": [
         "chinchilla",
         "cutieclanky",

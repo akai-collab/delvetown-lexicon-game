@@ -71,7 +71,7 @@
       "an"
     ]
   },
-  "turn": 3,
+  "turn": 4,
   "history": [
     {
       "turn": 1,
@@ -104,6 +104,20 @@
       "missed": [
         "retrofractal"
       ]
+    },
+    {
+      "turn": 3,
+      "letters": "C",
+      "written": [
+        "chinchilla",
+        "cutieclanky",
+        "juno",
+        "marginalia",
+        "mimo",
+        "penny",
+        "skillissue"
+      ],
+      "missed": []
     }
   ],
   "schedule": {

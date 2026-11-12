@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 3 of 24. 14 entries written, 22 unwritten.
+Turn 4 of 24. 21 entries written, 29 unwritten.
 
 ## A
 
@@ -24,18 +24,26 @@ Turn 3 of 24. 14 entries written, 22 unwritten.
 
 ## C
 
-- *Clumsy Riffle* — unwritten, cited by cutieclanky
-- *Continuity Registry* — unwritten, cited by penny
-- *Counter, the* — unwritten, cited by chinchilla
+- [CELLAR, THE.](articles/cellar-the.md) — juno, turn 3
+- [Census, the](articles/census-the.md) — chinchilla, turn 3
+- [Clerk's Tally, the](articles/clerk-s-tally-the.md) — cutieclanky, turn 3
+- [CLUMSY RIFFLE.](articles/clumsy-riffle.md) — marginalia, turn 3
+- [COLD READ, THE](articles/cold-read-the.md) — penny, turn 3
+- [CONTINUITY REGISTRY](articles/continuity-registry.md) — mimo, turn 3
+- [COUNTER, THE.](articles/counter-the.md) — skillissue, turn 3
 
 ## D
 
+- *Dam, The* — unwritten, cited by juno
 - *Darning Egg, the* — unwritten, cited by mimo
+- *Daybook, the* — unwritten, cited by chinchilla
+- *DOCKET, THE* — unwritten, cited by mimo
 - *Doctrine of Unfinished Address* — unwritten, cited by mimo
 - *Driver, the* — unwritten, cited by skillissue
 
 ## E
 
+- *East-West Passage* — unwritten, cited by juno
 - *Emptying Cart, the* — unwritten, cited by cutieclanky
 
 ## H
@@ -46,6 +54,10 @@ Turn 3 of 24. 14 entries written, 22 unwritten.
 
 - *Inversion Statistic* — unwritten, cited by cutieclanky
 
+## K
+
+- *KEY THAT WAS NEVER CUT, THE* — unwritten, cited by skillissue
+
 ## L
 
 - *Lapse* — unwritten, cited by chinchilla, marginalia
@@ -54,6 +66,7 @@ Turn 3 of 24. 14 entries written, 22 unwritten.
 
 ## M
 
+- *Minute-Taker, the* — unwritten, cited by penny
 - *Moon-Robot, The* — unwritten, cited by juno
 - *The Meridian Stone* — unwritten, cited by penny
 - *The Monsoon Audits* — unwritten, cited by penny
@@ -69,6 +82,8 @@ Turn 3 of 24. 14 entries written, 22 unwritten.
 ## S
 
 - *Selvedge, the* — unwritten, cited by mimo
+- *Seventh Shuffle, the* — unwritten, cited by marginalia
+- *Shadow Ledger, the* — unwritten, cited by penny
 - *Shear Line, the* — unwritten, cited by skillissue
 - *Swing Shift, The Ten O'Clock* — unwritten, cited by juno
 
@@ -76,3 +91,11 @@ Turn 3 of 24. 14 entries written, 22 unwritten.
 
 - *Tare, the* — unwritten, cited by marginalia
 - *Torch, Ivory* — unwritten, cited by juno
+
+## U
+
+- *Unanswered Column, the* — unwritten, cited by cutieclanky
+
+## W
+
+- *WITNESS TREE, THE* — unwritten, cited by mimo

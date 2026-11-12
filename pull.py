@@ -85,13 +85,19 @@ def handle_to_player(handle: str) -> str:
     return handle[:-len(HANDLE_SUFFIX)] if handle.endswith(HANDLE_SUFFIX) else handle.split(".")[0]
 
 
-def classify(replies, roster, turn, letters, ignore):
+def classify(replies, roster, turn, letters, ignore, retired=()):
     """Sort replies into takes, joins, dupes and skips. Pure: no files, no network, so it can be tested.
 
     The rules are the game's, not the tool's: an entry has a title of its own, cites at least one thing,
     and files under the turn's letter. Everything else is printed with a reason and left alone.
+
+    `retired` holds handles this table has taken off the roster on purpose. A join from one of them is not a
+    join: the signup post keeps the reply forever, so without this the desk re-announced the retirement every
+    hour (retrofractal, from 2026-11-11). An entry is still an arrival — a player who comes back with work is
+    admitted by the entry, which is the one admission this game has.
     """
     takes, joins, skips, dupes = [], [], [], []
+    retired = {h.lower() for h in retired}
     by_author = {}
     for r in replies:
         player = roster.get(r["handle"])
@@ -102,9 +108,12 @@ def classify(replies, roster, turn, letters, ignore):
         if (r["text"] or "").strip().strip(".!").lower() in ("off", "unsubscribe", "untag", "stop tagging me"):
             continue
         if player is None:
-            if is_join(r["text"]):
+            entry_shaped = bool(title and refs and lx.letter_of(title, ignore) in letters)
+            if r["handle"].lower() in retired and not entry_shaped:
+                skips.append((r, "retired from the roster — a join does not re-admit it, an entry would"))
+            elif is_join(r["text"]):
                 joins.append(r)
-            elif title and refs and lx.letter_of(title, ignore) in letters:
+            elif entry_shaped:
                 # A well-formed entry is the strongest ask a player can make: the join instruction only
                 # ever reached whoever read the announcement first (2026-11-07, juno filed an entry under
                 # turn A and was skipped as "not on the roster"). Carried in `joins` with a mark, so a
@@ -150,6 +159,7 @@ def main(argv=None) -> int:
     turn = game["turn"]
     letters = lx.turn_letters(game, turn)
     roster = {p["handle"]: p["player"] for p in game["players"] if p.get("handle")}
+    retired = {str(x.get("handle") if isinstance(x, dict) else x).lower() for x in (game.get("retired") or [])}
     ignore = (game.get("rules") or {}).get("ignore_leading") or []
 
     uri = args.post
@@ -164,7 +174,7 @@ def main(argv=None) -> int:
         print("no replies under that post yet")
         return 0
 
-    takes, joins, skips, dupes = classify(replies, roster, turn, letters, ignore)
+    takes, joins, skips, dupes = classify(replies, roster, turn, letters, ignore, retired)
 
     for r, title, refs, player in takes:
         print("take: %-34s %-10s turn %d  cites %s" % (title[:34], player, turn, ", ".join(refs[:3])))

@@ -105,6 +105,21 @@ class Taking(unittest.TestCase):
         _, joins, _, _ = pull.classify([r("cy.delve.town", "#lexicon join please")], ROSTER, 1, "A", [])
         self.assertEqual(len(joins), 1)
 
+    def test_a_join_from_a_retired_handle_is_not_a_join(self):
+        # The signup post keeps its replies forever, so a retired player's old join came back as a join on
+        # every roll and the desk re-announced the retirement each hour (retrofractal, 2026-11-11).
+        _, joins, skips, _ = pull.classify([r("cy.delve.town", "#lexicon joining")], ROSTER, 1, "A", [],
+                                           ["cy.delve.town"])
+        self.assertEqual(joins, [])
+        self.assertIn("retired", skips[0][1])
+
+    def test_a_retired_handle_that_files_an_entry_is_still_an_admit(self):
+        # Retired is not banned: an entry is the one admission this game has.
+        _, joins, skips, _ = pull.classify([r("cy.delve.town", "**Ash Tithe**\n\n[[Bell Road]]")],
+                                           ROSTER, 1, "A", [], ["cy.delve.town"])
+        self.assertEqual(skips, [])
+        self.assertTrue(joins and joins[0].get("_admit"))
+
     def test_leading_articles_are_ignored_when_reading_the_letter(self):
         takes, _, _, _ = pull.classify([r("ana.delve.town", "**The Ash Tithe**\n\n[[Bell Road]]")],
                                        ROSTER, 1, "A", ["the"])

@@ -33,7 +33,7 @@ SITE = "lexicon"
 WEB_MAP_WIDTH = 1800
 
 STYLE = """\
- :root { --ink:#e8e4dc; --dim:#9a948a; --bg:#14140f; --line:#33302a; --ph:#6f8f7a; }
+ :root { --ink:#e8e4dc; --dim:#9a948a; --bg:#14140f; --line:#33302a; --ph:#6f8f7a; --wr:#d8a75f; }
  body { background:var(--bg); color:var(--ink); font:17px/1.65 Georgia,serif;
         max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 5rem; }
  h1 { font-size:1.9rem; margin:0 0 .2rem; letter-spacing:.01em; }
@@ -43,8 +43,12 @@ STYLE = """\
  .lede, .by, .who, footer { color:var(--dim); }
  .by { font-size:.82rem; margin:0 0 .9rem; font-style:italic; }
  article { margin:0 0 2rem; }
- .written { border-bottom:1px solid var(--line); }
+ /* a citation to an entry written: amber, thin underline, and a link to the entry itself */
+ .written { color:var(--wr); border-bottom:1px solid rgba(216,167,95,.4); text-decoration:none; }
+ .written:hover, .written:focus { border-bottom-color:var(--wr); }
  .phantom { color:var(--ph); border-bottom:1px dashed var(--ph); }
+ article:target h3 { color:var(--wr); }
+ article:target { outline:1px solid rgba(216,167,95,.25); outline-offset:.6rem; }
  ul { padding-left:1.1rem; } li { margin:.25rem 0; }
  .who { font-size:.8rem; }
  .mapbox { overflow-x:auto; margin:1.4rem 0 .3rem; border:1px solid var(--line); }
@@ -77,9 +81,13 @@ def paragraphs(body: str, written: set[str], signature: str) -> list[str]:
         pieces, last = [], 0
         for m in lx.LINK.finditer(block):
             title = m.group(1).strip()
+            k = lx.key(title)
             pieces.append(esc(block[last:m.start()]))
-            cls = "written" if lx.key(title) in written else "phantom"
-            pieces.append('<span class="%s">%s</span>' % (cls, esc(title)))
+            if k in written:
+                # A citation that has been made good is the entry's own address: amber, and a jump to it.
+                pieces.append('<a class="written" href="#%s">%s</a>' % (k, esc(title)))
+            else:
+                pieces.append('<span class="phantom">%s</span>' % esc(title))
             last = m.end()
         pieces.append(esc(block[last:]))
         out.append("<p>%s</p>" % "".join(pieces).replace("\n", " "))
@@ -127,7 +135,7 @@ def build(game_dir: pathlib.Path) -> tuple[str, dict]:
     add("<h1>The Lexicon</h1>")
     add('<p class="lede">A town dictionary, one letter per turn. Turn %d is the letter\n<b>%s</b> and closes %s.</p>'
         % (turn, esc(letters), closes.strftime(DATE_ONLY) if closes else "on no stated date"))
-    add('<p class="lede">Entries are folded at the close, so what is below is what has been folded:\n%d entries, and %d names promised but not yet written. A name in\n<span class="phantom">green</span> is a phantom — someone built on it before anyone wrote it.\nEach phantom names the entry that made the promise. Because the list is drawn from folded\ntext, a promise made in a reply that has not been folded yet appears here after the fold,\nnot before it.</p>'
+    add('<p class="lede">Entries are folded at the close, so what is below is what has been folded:\n%d entries, and %d names promised but not yet written. A name in\n<span class="phantom">green</span> is a phantom — someone built on it before anyone wrote it — and each\nphantom names the entry that made the promise. A name in\n<span class="written">amber</span> was a phantom that has since been written: it links to the entry, and\nevery citation of it jumps there. Because both lists are drawn from folded\ntext, a promise made in a reply that has not been folded yet appears here after the fold,\nnot before it.</p>'
         % (len(entries), len(phantoms)))
     add('<div class="mapbox"><a class="map" href="graph.png" title="Open the full-size map (%d x %d)">'
         % map_size(game_dir))

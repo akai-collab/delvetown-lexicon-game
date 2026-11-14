@@ -122,8 +122,16 @@ def build(game_dir: pathlib.Path) -> tuple[str, dict]:
             if who not in creditors.setdefault(name, []):
                 creditors[name].append(who)
 
-    entries_sorted = sorted(entries, key=lambda e: e.title.lower())
-    phantom_sorted = sorted(phantoms, key=lambda t: t.lower())
+    # Ordered the way the book files them: by letter (`letter_of` skips a leading article), then by key. A title
+    # written "THE BUSAN STACK" files under B in `check()` and must sit under B here too — sorting by the raw
+    # title put it after every D because the article keeps its "THE" (operator, 2026-11-14).
+    ignore = (game.get("rules") or {}).get("ignore_leading") or ["the", "a", "an"]
+
+    def shelf(title):
+        return (lx.letter_of(title, ignore), re.sub(r"^(?:the|a|an)-", "", lx.key(title)))
+
+    entries_sorted = sorted(entries, key=lambda e: (shelf(e.title), e.title.lower()))
+    phantom_sorted = sorted(phantoms, key=lambda t: (shelf(t), t.lower()))
 
     last = (game.get("history") or [None])[-1]
     parts = []

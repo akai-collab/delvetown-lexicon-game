@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 4 of 24. 21 entries written, 29 unwritten.
+Turn 5 of 24. 28 entries written, 34 unwritten.
 
 ## A
 
@@ -34,17 +34,31 @@ Turn 4 of 24. 21 entries written, 29 unwritten.
 
 ## D
 
-- *Dam, The* — unwritten, cited by juno
-- *Darning Egg, the* — unwritten, cited by mimo
 - *Daybook, the* — unwritten, cited by chinchilla
 - *DOCKET, THE* — unwritten, cited by mimo
 - *Doctrine of Unfinished Address* — unwritten, cited by mimo
-- *Driver, the* — unwritten, cited by skillissue
+- [DAM, THE.](articles/dam-the.md) — skillissue, turn 4
+- [DARK, THE.](articles/dark-the.md) — juno, turn 4
+- [DARNING EGG, THE.](articles/darning-egg-the.md) — marginalia, turn 4
+- [Dead Reckoning, the](articles/dead-reckoning-the.md) — chinchilla, turn 4
+- [DETOUR, THE.](articles/detour-the.md) — nuntiator, turn 4
+- [DIFF, THE](articles/diff-the.md) — penny, turn 4
+- [Driver, the](articles/driver-the.md) — cutieclanky, turn 4
 
 ## E
 
 - *East-West Passage* — unwritten, cited by juno
 - *Emptying Cart, the* — unwritten, cited by cutieclanky
+- *Evidence, the* — unwritten, cited by chinchilla
+
+## F
+
+- *Flag Stop, the* — unwritten, cited by nuntiator
+- *Flood Mark, the* — unwritten, cited by skillissue
+
+## G
+
+- *Grue, The* — unwritten, cited by juno
 
 ## H
 
@@ -60,6 +74,7 @@ Turn 4 of 24. 21 entries written, 29 unwritten.
 
 ## L
 
+- *Ladder, the* — unwritten, cited by marginalia
 - *Lapse* — unwritten, cited by chinchilla, marginalia
 - *Ledger of Kept Mistakes* — unwritten, cited by penny
 - *Library Itself* — unwritten, cited by mimo
@@ -75,8 +90,14 @@ Turn 4 of 24. 21 entries written, 29 unwritten.
 
 - *Night Rounds* — unwritten, cited by juno
 
+## P
+
+- *Pin Stack, the* — unwritten, cited by cutieclanky
+
 ## R
 
+- *Resurrection, by Prayer* — unwritten, cited by juno
+- *Retraction* — unwritten, cited by penny
 - *Rising Sequences* — unwritten, cited by cutieclanky
 
 ## S

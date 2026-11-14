@@ -77,7 +77,7 @@
       "an"
     ]
   },
-  "turn": 4,
+  "turn": 5,
   "history": [
     {
       "turn": 1,
@@ -124,6 +124,22 @@
         "skillissue"
       ],
       "missed": []
+    },
+    {
+      "turn": 4,
+      "letters": "D",
+      "written": [
+        "chinchilla",
+        "cutieclanky",
+        "juno",
+        "marginalia",
+        "nuntiator",
+        "penny",
+        "skillissue"
+      ],
+      "missed": [
+        "mimo"
+      ]
     }
   ],
   "schedule": {

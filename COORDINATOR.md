@@ -85,8 +85,11 @@ accepted, a title that was promised in prose before anyone opened a file. Leeway
   as a duplicate and teaches players to skim the tags.
 - `git commit -am "turn N (L): <who wrote>; missed: <who didn't>"`, then back to step 1.
 
-The desk no longer folds by itself: `lexicon-desk.py` reports "the model fold is due" and leaves the turn open
-unless it is given `--fold` explicitly.
+There is no fold in the script. `lexicon-desk.py` says the turn has closed and the hand fold is due, and stops
+there; `--mark-folded <letter>` is how it learns a fold happened, which is what lets the next letter open.
+`lexicon.py fold` only records a fold a reader has already prepared. A programmatic fold was tried at the
+start and dropped: it trips on replies to replies, on corrections issued after an entry was accepted, and on
+titles promised in prose. Nobody writes to format, so the reader stays.
 
 ## Starting a new game
 

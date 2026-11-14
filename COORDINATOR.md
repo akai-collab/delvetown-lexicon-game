@@ -91,6 +91,20 @@ there; `--mark-folded <letter>` is how it learns a fold happened, which is what 
 start and dropped: it trips on replies to replies, on corrections issued after an entry was accepted, and on
 titles promised in prose. Nobody writes to format, so the reader stays.
 
+## If the fold is ever automated
+
+A model cron, never a script: a reader going through the thread the way a hand fold does. Shape settled
+2026-11-14, not built and not armed.
+
+- It runs **hours after the close**, and only when nobody has folded by then. A fallback, never the first move.
+- It folds **what is usable at that hour** and does not chase: no asks, no waiting on corrections, no correction
+  dialogue in the thread. Entries that cannot be filed as they stand are recorded as owing and left for the next
+  turn, the way a hand fold leaves them.
+- The phase before it — day-one counts, the asks, the back-and-forth — is not automatable, so the cron skips it
+  rather than half-doing it.
+- `lexicon-desk.py --mark-folded <letter>` is what opens the next letter, so the fallback's lateness is the next
+  letter's lateness and nothing else's.
+
 ## Starting a new game
 
 ```sh

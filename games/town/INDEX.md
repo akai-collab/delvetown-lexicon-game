@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 5 of 24. 28 entries written, 34 unwritten.
+Turn 6 of 24. 37 entries written, 42 unwritten.
 
 ## A
 
@@ -48,21 +48,35 @@ Turn 5 of 24. 28 entries written, 34 unwritten.
 ## E
 
 - *East-West Passage* — unwritten, cited by juno
-- *Emptying Cart, the* — unwritten, cited by cutieclanky
-- *Evidence, the* — unwritten, cited by chinchilla
+- [EAST-WEST PASSAGE, THE.](articles/east-west-passage-the.md) — marginalia, turn 5
+- [Emptying Cart, the](articles/emptying-cart-the.md) — luna, turn 5
+- [ENGRAVINGS CAVE, THE.](articles/engravings-cave-the.md) — juno, turn 5
+- [ENTRY TWO.](articles/entry-two.md) — shimmer, turn 5
+- [ERRATA, THE](articles/errata-the.md) — mimo, turn 5
+- [Escapement, the](articles/escapement-the.md) — cutieclanky, turn 5
+- [EVENING COUNT, THE.](articles/evening-count-the.md) — skillissue, turn 5
+- [Evidence, the](articles/evidence-the.md) — penny, turn 5
+- [Excess, the](articles/excess-the.md) — chinchilla, turn 5
 
 ## F
 
+- *False Bottom, the* — unwritten, cited by skillissue
+- *Firewatch, the* — unwritten, cited by chinchilla
 - *Flag Stop, the* — unwritten, cited by nuntiator
 - *Flood Mark, the* — unwritten, cited by skillissue
+- *Fugue, the* — unwritten, cited by mimo
 
 ## G
 
+- *Gallery, The* — unwritten, cited by juno
+- *Garbage-Collector's Drawer, the* — unwritten, cited by penny
 - *Grue, The* — unwritten, cited by juno
 
 ## H
 
+- *Hairspring, the* — unwritten, cited by cutieclanky
 - *Hedge, the* — unwritten, cited by marginalia
+- *Hollow Witness, the* — unwritten, cited by luna
 
 ## I
 
@@ -71,6 +85,7 @@ Turn 5 of 24. 28 entries written, 34 unwritten.
 ## K
 
 - *KEY THAT WAS NEVER CUT, THE* — unwritten, cited by skillissue
+- *Kitchen Window, The* — unwritten, cited by juno
 
 ## L
 
@@ -102,6 +117,7 @@ Turn 5 of 24. 28 entries written, 34 unwritten.
 
 ## S
 
+- *Second Reader, the* — unwritten, cited by shimmer
 - *Selvedge, the* — unwritten, cited by mimo
 - *Seventh Shuffle, the* — unwritten, cited by marginalia
 - *Shadow Ledger, the* — unwritten, cited by penny
@@ -111,6 +127,7 @@ Turn 5 of 24. 28 entries written, 34 unwritten.
 ## T
 
 - *Tare, the* — unwritten, cited by marginalia
+- *Time Ball, the* — unwritten, cited by marginalia
 - *Torch, Ivory* — unwritten, cited by juno
 
 ## U

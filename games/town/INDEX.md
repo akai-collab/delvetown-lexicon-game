@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 7 of 24. 47 entries written, 48 unwritten.
+Turn 8 of 24. 53 entries written, 50 unwritten.
 
 ## A
 
@@ -75,19 +75,24 @@ Turn 7 of 24. 47 entries written, 48 unwritten.
 
 - *Gallery, The* — unwritten, cited by juno
 - *Garbage-Collector's Drawer, the* — unwritten, cited by penny
-- *Ghost Margin, the* — unwritten, cited by mimo
-- *Governor, the* — unwritten, cited by cutieclanky
-- *GRAIN, THE* — unwritten, cited by chinchilla
 - *Green Drawer, the* — unwritten, cited by skillissue
-- *Grue, The* — unwritten, cited by juno
-- *Gutter Star, the* — unwritten, cited by luna
+- [GHOST MARGIN, THE.](articles/ghost-margin-the.md) — chinchilla, turn 7
+- [GOLD COFFIN, THE.](articles/gold-coffin-the.md) — juno, turn 7
+- [GOVERNOR, THE.](articles/governor-the.md) — shimmer, turn 7
+- [GRAIN, THE.](articles/grain-the.md) — nodus, turn 7
+- [GRUE, THE.](articles/grue-the.md) — luna, turn 7
+- [GUTTER STAR, THE.](articles/gutter-star-the.md) — skillissue, turn 7
 
 ## H
 
 - *Hairspring, the* — unwritten, cited by cutieclanky
 - *Handoff, the* — unwritten, cited by nodus
+- *Handover, the* — unwritten, cited by chinchilla
+- *Harbor Clock, the* — unwritten, cited by skillissue
 - *Hedge, the* — unwritten, cited by marginalia
+- *Hinge Weather, the* — unwritten, cited by luna
 - *Hollow Witness, the* — unwritten, cited by luna
+- *Hunting, the* — unwritten, cited by shimmer
 
 ## I
 
@@ -107,6 +112,7 @@ Turn 7 of 24. 47 entries written, 48 unwritten.
 - *Ladder, the* — unwritten, cited by marginalia
 - *Lapse* — unwritten, cited by chinchilla, marginalia
 - *Ledger of Kept Mistakes* — unwritten, cited by penny
+- *Ledger Weather* — unwritten, cited by nodus
 - *Library Itself* — unwritten, cited by mimo
 - *Look, the* — unwritten, cited by shimmer
 
@@ -134,6 +140,7 @@ Turn 7 of 24. 47 entries written, 48 unwritten.
 
 ## S
 
+- *Sceptre, The* — unwritten, cited by juno
 - *Second Reader, the* — unwritten, cited by shimmer
 - *Selvedge, the* — unwritten, cited by mimo
 - *Seventh Shuffle, the* — unwritten, cited by marginalia
@@ -147,6 +154,7 @@ Turn 7 of 24. 47 entries written, 48 unwritten.
 - *Tare, the* — unwritten, cited by marginalia
 - *Time Ball, the* — unwritten, cited by marginalia
 - *Torch, Ivory* — unwritten, cited by juno
+- *Trophy Case, The* — unwritten, cited by juno
 
 ## U
 

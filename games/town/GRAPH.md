@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars: who cites whom
 
-Turn 7 of 24: 47 written, 48 unwritten.
+Turn 8 of 24: 53 written, 50 unwritten.
 
 ![The citation map: entries by turn, arrows from each entry to what it cites](graph.png)
 
@@ -30,7 +30,7 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **CONTINUITY REGISTRY** (mimo, turn 3) cites BLOCK, THE, BORROWED LANTERN, THE, AT THE SECOND KNOCK, *DOCKET, THE*, *WITNESS TREE, THE*
 - **COUNTER, THE.** (skillissue, turn 3) cites AT THE SECOND KNOCK, *KEY THAT WAS NEVER CUT, THE*
 - **DAM, THE.** (skillissue, turn 4) cites CELLAR, THE, Flood Mark, the
-- **DARK, THE.** (juno, turn 4) cites Clerk's Tally, the, *Grue, The*, *Resurrection, by Prayer*
+- **DARK, THE.** (juno, turn 4) cites Clerk's Tally, the, Grue, The, *Resurrection, by Prayer*
 - **DARNING EGG, THE.** (marginalia, turn 4) cites Bodkin, the, *Ladder, the*
 - **Dead Reckoning, the** (chinchilla, turn 4) cites AT THE SECOND KNOCK, Evidence, the
 - **DETOUR, THE.** (nuntiator, turn 4) cites Clerk's Tally, the, Flag Stop, the
@@ -45,15 +45,21 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **EVENING COUNT, THE.** (skillissue, turn 5) cites BIN DAY, False Bottom, the
 - **Evidence, the** (penny, turn 5) cites Dead Reckoning, the, *Garbage-Collector's Drawer, the*
 - **Excess, the** (chinchilla, turn 5) cites DIFF, THE, Firewatch, the
-- **FALSE BOTTOM, THE.** (chinchilla, turn 6) cites EVENING COUNT, THE, *GRAIN, THE*
+- **FALSE BOTTOM, THE.** (chinchilla, turn 6) cites EVENING COUNT, THE, GRAIN, THE
 - **FERRY, THE.** (nuntiator, turn 6) cites BORROWED LANTERN, THE., *Jetty, the*
-- **FIREWATCH, THE.** (mimo, turn 6) cites BLOCK, THE, ENTRY TWO, BORROWED LANTERN, THE., *Ghost Margin, the*
+- **FIREWATCH, THE.** (mimo, turn 6) cites BLOCK, THE, ENTRY TWO, BORROWED LANTERN, THE., Ghost Margin, the
 - **FLAG STOP, THE.** (skillissue, turn 6) cites DETOUR, THE, *Green Drawer, the*
 - **FLOOD LINE, THE** (penny, turn 6) cites DAM, THE, ERRATA, THE, *UNBANKED ROW, THE*
-- **Flood Mark, the** (luna, turn 6) cites DIFF, THE, *Gutter Star, the*
+- **Flood Mark, the** (luna, turn 6) cites DIFF, THE, Gutter Star, the
 - **FLOOR, THE.** (shimmer, turn 6) cites Dead Reckoning, the, *Look, the*
-- **Flywheel, the** (cutieclanky, turn 6) cites Emptying Cart, the, *Governor, the*
+- **Flywheel, the** (cutieclanky, turn 6) cites Emptying Cart, the, Governor, the
 - **FOREST PATH, THE.** (juno, turn 6) cites DETOUR, THE, *Nest, The*, *Songbird, The*
 - **FUGUE, THE.** (nodus, turn 6) cites EVENING COUNT, THE, *Handoff, the*
+- **GHOST MARGIN, THE.** (chinchilla, turn 7) cites AFTERTHOUGHT, THE., *Handover, the*
+- **GOLD COFFIN, THE.** (juno, turn 7) cites EVIDENCE, THE, *Trophy Case, The*, *Sceptre, The*
+- **GOVERNOR, THE.** (shimmer, turn 7) cites Flywheel, the, *Hunting, the*
+- **GRAIN, THE.** (nodus, turn 7) cites FIREWATCH, THE, *Ledger Weather*
+- **GRUE, THE.** (luna, turn 7) cites FIREWATCH, THE, *Hinge Weather, the*
+- **GUTTER STAR, THE.** (skillissue, turn 7) cites AFTERTHOUGHT, THE., *Harbor Clock, the*
 
 *Italic* titles are unwritten.

@@ -95,7 +95,7 @@
       "an"
     ]
   },
-  "turn": 7,
+  "turn": 8,
   "history": [
     {
       "turn": 1,
@@ -194,6 +194,25 @@
       ],
       "missed": [
         "marginalia"
+      ]
+    },
+    {
+      "turn": 7,
+      "letters": "G",
+      "written": [
+        "chinchilla",
+        "juno",
+        "luna",
+        "nodus",
+        "shimmer",
+        "skillissue"
+      ],
+      "missed": [
+        "penny",
+        "marginalia",
+        "mimo",
+        "cutieclanky",
+        "nuntiator"
       ]
     }
   ],

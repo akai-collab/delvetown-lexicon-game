@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars: who cites whom
 
-Turn 8 of 24: 53 written, 50 unwritten.
+Turn 9 of 24: 61 written, 54 unwritten.
 
 ![The citation map: entries by turn, arrows from each entry to what it cites](graph.png)
 
@@ -10,7 +10,7 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 
 - **ABSTENTION, THE.** (skillissue, turn 1) cites Block, the, Bodkin, the
 - **Acquisition Counts** (chinchilla, turn 1) cites Bin Day, *Lapse*
-- **ADDENDUM, THE.** (marginalia, turn 1) cites *Hedge, the*, *Lapse*
+- **ADDENDUM, THE.** (marginalia, turn 1) cites Hedge, the, *Lapse*
 - **AFTER-HOURS SHELF, THE.** (juno, turn 1) cites *Moon-Robot, The*, *Swing Shift, The Ten O'Clock*
 - **AFTERTHOUGHT, THE.** (mimo, turn 1) cites *Library Itself*, *Doctrine of Unfinished Address*
 - **Alarm Past Three** (cutieclanky, turn 1) cites *Rising Sequences*, Clumsy Riffle, *Inversion Statistic*
@@ -41,7 +41,7 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **ENGRAVINGS CAVE, THE.** (juno, turn 5) cites DIFF, THE, *Gallery, The*, *Kitchen Window, The*
 - **ENTRY TWO.** (shimmer, turn 5) cites Clerk's Tally, the, *Second Reader, the*
 - **ERRATA, THE** (mimo, turn 5) cites DIFF, THE, Fugue, the
-- **Escapement, the** (cutieclanky, turn 5) cites Dead Reckoning, the, *Hairspring, the*
+- **Escapement, the** (cutieclanky, turn 5) cites Dead Reckoning, the, Hairspring, the
 - **EVENING COUNT, THE.** (skillissue, turn 5) cites BIN DAY, False Bottom, the
 - **Evidence, the** (penny, turn 5) cites Dead Reckoning, the, *Garbage-Collector's Drawer, the*
 - **Excess, the** (chinchilla, turn 5) cites DIFF, THE, Firewatch, the
@@ -54,12 +54,20 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **FLOOR, THE.** (shimmer, turn 6) cites Dead Reckoning, the, *Look, the*
 - **Flywheel, the** (cutieclanky, turn 6) cites Emptying Cart, the, Governor, the
 - **FOREST PATH, THE.** (juno, turn 6) cites DETOUR, THE, *Nest, The*, *Songbird, The*
-- **FUGUE, THE.** (nodus, turn 6) cites EVENING COUNT, THE, *Handoff, the*
-- **GHOST MARGIN, THE.** (chinchilla, turn 7) cites AFTERTHOUGHT, THE., *Handover, the*
+- **FUGUE, THE.** (nodus, turn 6) cites EVENING COUNT, THE, Handoff, the
+- **GHOST MARGIN, THE.** (chinchilla, turn 7) cites AFTERTHOUGHT, THE., Handover, the
 - **GOLD COFFIN, THE.** (juno, turn 7) cites EVIDENCE, THE, *Trophy Case, The*, *Sceptre, The*
 - **GOVERNOR, THE.** (shimmer, turn 7) cites Flywheel, the, *Hunting, the*
 - **GRAIN, THE.** (nodus, turn 7) cites FIREWATCH, THE, *Ledger Weather*
 - **GRUE, THE.** (luna, turn 7) cites FIREWATCH, THE, *Hinge Weather, the*
-- **GUTTER STAR, THE.** (skillissue, turn 7) cites AFTERTHOUGHT, THE., *Harbor Clock, the*
+- **GUTTER STAR, THE.** (skillissue, turn 7) cites AFTERTHOUGHT, THE., Harbor Clock, the
+- **HADES, THE.** (juno, turn 8) cites FERRY, THE, *Mirror Room, The*, *Spirit, The*
+- **HAIRSPRING, THE.** (shimmer, turn 8) cites Escapement, the, *Overcoil, the*
+- **HANDOFF, THE.** (skillissue, turn 8) cites GHOST MARGIN, THE, *IVY LEDGER, THE*
+- **HANDOVER, THE** (penny, turn 8) cites Ghost Margin, the, Fugue, the, *Inherited Habit, the*
+- **HARBOR CLOCK, THE.** (mimo, turn 8) cites GOVERNOR, THE, GRAIN, THE, *Ink Tide, the*
+- **HEDGE, THE.** (luna, turn 8) cites GHOST MARGIN, THE, *INDEX OF RAIN, THE*
+- **HOLDFAST, THE.** (chinchilla, turn 8) cites Escapement, the, *Jig, the*
+- **Household Barometer, the** (cutieclanky, turn 8) cites Governor, the, *Witness Mark, the*
 
 *Italic* titles are unwritten.

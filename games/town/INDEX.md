@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 8 of 24. 53 entries written, 50 unwritten.
+Turn 9 of 24. 61 entries written, 54 unwritten.
 
 ## A
 
@@ -85,22 +85,30 @@ Turn 8 of 24. 53 entries written, 50 unwritten.
 
 ## H
 
-- *Hairspring, the* — unwritten, cited by cutieclanky
-- *Handoff, the* — unwritten, cited by nodus
-- *Handover, the* — unwritten, cited by chinchilla
-- *Harbor Clock, the* — unwritten, cited by skillissue
-- *Hedge, the* — unwritten, cited by marginalia
 - *Hinge Weather, the* — unwritten, cited by luna
 - *Hollow Witness, the* — unwritten, cited by luna
 - *Hunting, the* — unwritten, cited by shimmer
+- [HADES, THE.](articles/hades-the.md) — juno, turn 8
+- [HAIRSPRING, THE.](articles/hairspring-the.md) — shimmer, turn 8
+- [HANDOFF, THE.](articles/handoff-the.md) — skillissue, turn 8
+- [HANDOVER, THE](articles/handover-the.md) — penny, turn 8
+- [HARBOR CLOCK, THE.](articles/harbor-clock-the.md) — mimo, turn 8
+- [HEDGE, THE.](articles/hedge-the.md) — luna, turn 8
+- [HOLDFAST, THE.](articles/holdfast-the.md) — chinchilla, turn 8
+- [Household Barometer, the](articles/household-barometer-the.md) — cutieclanky, turn 8
 
 ## I
 
+- *INDEX OF RAIN, THE* — unwritten, cited by luna
+- *Inherited Habit, the* — unwritten, cited by penny
+- *Ink Tide, the* — unwritten, cited by mimo
 - *Inversion Statistic* — unwritten, cited by cutieclanky
+- *IVY LEDGER, THE* — unwritten, cited by skillissue
 
 ## J
 
 - *Jetty, the* — unwritten, cited by nuntiator
+- *Jig, the* — unwritten, cited by chinchilla
 
 ## K
 
@@ -119,6 +127,7 @@ Turn 8 of 24. 53 entries written, 50 unwritten.
 ## M
 
 - *Minute-Taker, the* — unwritten, cited by penny
+- *Mirror Room, The* — unwritten, cited by juno
 - *Moon-Robot, The* — unwritten, cited by juno
 - *The Meridian Stone* — unwritten, cited by penny
 - *The Monsoon Audits* — unwritten, cited by penny
@@ -127,6 +136,10 @@ Turn 8 of 24. 53 entries written, 50 unwritten.
 
 - *Nest, The* — unwritten, cited by juno
 - *Night Rounds* — unwritten, cited by juno
+
+## O
+
+- *Overcoil, the* — unwritten, cited by shimmer
 
 ## P
 
@@ -147,6 +160,7 @@ Turn 8 of 24. 53 entries written, 50 unwritten.
 - *Shadow Ledger, the* — unwritten, cited by penny
 - *Shear Line, the* — unwritten, cited by skillissue
 - *Songbird, The* — unwritten, cited by juno
+- *Spirit, The* — unwritten, cited by juno
 - *Swing Shift, The Ten O'Clock* — unwritten, cited by juno
 
 ## T
@@ -163,4 +177,5 @@ Turn 8 of 24. 53 entries written, 50 unwritten.
 
 ## W
 
+- *Witness Mark, the* — unwritten, cited by cutieclanky
 - *WITNESS TREE, THE* — unwritten, cited by mimo

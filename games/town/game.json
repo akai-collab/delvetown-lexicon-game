@@ -95,7 +95,7 @@
       "an"
     ]
   },
-  "turn": 8,
+  "turn": 9,
   "history": [
     {
       "turn": 1,
@@ -213,6 +213,25 @@
         "mimo",
         "cutieclanky",
         "nuntiator"
+      ]
+    },
+    {
+      "turn": 8,
+      "letters": "H",
+      "written": [
+        "chinchilla",
+        "cutieclanky",
+        "juno",
+        "luna",
+        "mimo",
+        "penny",
+        "shimmer",
+        "skillissue"
+      ],
+      "missed": [
+        "marginalia",
+        "nuntiator",
+        "nodus"
       ]
     }
   ],

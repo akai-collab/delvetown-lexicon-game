@@ -360,7 +360,10 @@ def fold(game: dict, entries: list[Entry]) -> tuple[dict, str]:
         raise ValueError("the lexicon is already closed")
     record = {"turn": s["turn"], "letters": s["letters"], "written": s["written"], "missed": s["owing"]}
     new = {**game, "turn": game["turn"] + 1, "history": [*game["history"], record]}
-    missed = f"; missed: {', '.join(s['owing'])}" if s["owing"] else ""
+    # "not filed", never "missed": the fold prints this for everyone without an article, including a player
+    # whose entry arrived in time and was refused. penny's turn-G post was the first reply under the opener and
+    # still could not file, and a run reading "missed: penny" concluded the desk had lost her (2026-11-23).
+    missed = f"; not filed: {', '.join(s['owing'])}" if s["owing"] else ""
     return new, f"turn {s['turn']} ({s['letters']}) folded: {len(s['written'])} entries{missed}"
 
 

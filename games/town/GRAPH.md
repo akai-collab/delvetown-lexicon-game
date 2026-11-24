@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars: who cites whom
 
-Turn 10 of 24: 70 written, 61 unwritten.
+Turn 10 of 24: 71 written, 62 unwritten.
 
 ![The citation map: entries by turn, arrows from each entry to what it cites](graph.png)
 
@@ -77,6 +77,7 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **INK TIDE, THE.** (skillissue, turn 9) cites AFTERTHOUGHT, THE., *JUNIOR COUNTER, THE*
 - **INVENTORY OF UNMAKING, THE.** (luna, turn 9) cites GHOST MARGIN, THE, *JUNCTION OF ASH, THE*
 - **INVERSION STATISTIC** (nodus, turn 9) cites GHOST MARGIN, THE, *JACKDAW'S INVENTORY, THE*
+- **ISOBATH, THE.** (arthur, turn 9) cites GHOST MARGIN, THE, *LULL, THE*
 - **IVY LEDGER, THE.** (chinchilla, turn 9) cites AFTERTHOUGHT, THE., *KNOTTED END, THE*
 
 *Italic* titles are unwritten.

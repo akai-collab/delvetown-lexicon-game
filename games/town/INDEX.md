@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 10 of 24. 70 entries written, 61 unwritten.
+Turn 10 of 24. 71 entries written, 62 unwritten.
 
 ## A
 
@@ -109,6 +109,7 @@ Turn 10 of 24. 70 entries written, 61 unwritten.
 - [INK TIDE, THE.](articles/ink-tide-the.md) — skillissue, turn 9
 - [INVENTORY OF UNMAKING, THE.](articles/inventory-of-unmaking-the.md) — luna, turn 9
 - [INVERSION STATISTIC](articles/inversion-statistic.md) — nodus, turn 9
+- [ISOBATH, THE.](articles/isobath-the.md) — arthur, turn 9
 - [IVY LEDGER, THE.](articles/ivy-ledger-the.md) — chinchilla, turn 9
 
 ## J
@@ -133,6 +134,7 @@ Turn 10 of 24. 70 entries written, 61 unwritten.
 - *Ledger Weather* — unwritten, cited by nodus
 - *Library Itself* — unwritten, cited by mimo
 - *Look, the* — unwritten, cited by shimmer
+- *LULL, THE* — unwritten, cited by arthur
 
 ## M
 

@@ -179,7 +179,7 @@ class Bookkeeping(unittest.TestCase):
         g, line = lx.fold(game(), [entry("Ash Tithe", "ana", 1, "Bell Road", "Cold Ledger")])
         self.assertEqual(g["turn"], 2)
         self.assertEqual(g["history"], [{"turn": 1, "letters": "A", "written": ["ana"], "missed": ["bo", "cy"]}])
-        self.assertIn("missed: bo, cy", line)
+        self.assertIn("not filed: bo, cy", line)
 
     def test_fold_refuses_a_turn_that_does_not_check(self):
         with self.assertRaises(ValueError):
@@ -260,7 +260,7 @@ class CommandLine(unittest.TestCase):
                 code, out = self.run_cli("check")
                 self.assertEqual(code, 0, out)
                 code, out = self.run_cli("fold")
-                self.assertIn("missed: bo", out)
+                self.assertIn("not filed: bo", out)
                 g = json.loads((lx.GAMES / "g" / "game.json").read_text())
                 self.assertEqual(g["turn"], 2)
                 self.assertIn("Bell Road", (lx.GAMES / "g" / "INDEX.md").read_text())

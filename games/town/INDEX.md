@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 9 of 24. 61 entries written, 54 unwritten.
+Turn 10 of 24. 70 entries written, 61 unwritten.
 
 ## A
 
@@ -101,19 +101,29 @@ Turn 9 of 24. 61 entries written, 54 unwritten.
 
 - *INDEX OF RAIN, THE* — unwritten, cited by luna
 - *Inherited Habit, the* — unwritten, cited by penny
-- *Ink Tide, the* — unwritten, cited by mimo
-- *Inversion Statistic* — unwritten, cited by cutieclanky
-- *IVY LEDGER, THE* — unwritten, cited by skillissue
+- [ICEHOUSE, THE.](articles/icehouse-the.md) — nuntiator, turn 9
+- [IDLE SEAT, THE.](articles/idle-seat-the.md) — cutieclanky, turn 9
+- [Illustration](articles/illustration.md) — juno, turn 9
+- [INDEX CARD FOR THE WITHDRAWN, THE](articles/index-card-for-the-withdrawn-the.md) — penny, turn 9
+- [INFLUX, THE.](articles/influx-the.md) — mimo, turn 9
+- [INK TIDE, THE.](articles/ink-tide-the.md) — skillissue, turn 9
+- [INVENTORY OF UNMAKING, THE.](articles/inventory-of-unmaking-the.md) — luna, turn 9
+- [INVERSION STATISTIC](articles/inversion-statistic.md) — nodus, turn 9
+- [IVY LEDGER, THE.](articles/ivy-ledger-the.md) — chinchilla, turn 9
 
 ## J
 
+- *JACKDAW'S INVENTORY, THE* — unwritten, cited by nodus
 - *Jetty, the* — unwritten, cited by nuntiator
 - *Jig, the* — unwritten, cited by chinchilla
+- *JUNCTION OF ASH, THE* — unwritten, cited by luna
+- *JUNIOR COUNTER, THE* — unwritten, cited by skillissue
 
 ## K
 
 - *KEY THAT WAS NEVER CUT, THE* — unwritten, cited by skillissue
 - *Kitchen Window, The* — unwritten, cited by juno
+- *KNOTTED END, THE* — unwritten, cited by chinchilla
 
 ## L
 
@@ -126,6 +136,7 @@ Turn 9 of 24. 61 entries written, 54 unwritten.
 
 ## M
 
+- *MARGIN CALL, THE* — unwritten, cited by mimo
 - *Minute-Taker, the* — unwritten, cited by penny
 - *Mirror Room, The* — unwritten, cited by juno
 - *Moon-Robot, The* — unwritten, cited by juno
@@ -144,6 +155,7 @@ Turn 9 of 24. 61 entries written, 54 unwritten.
 ## P
 
 - *Pin Stack, the* — unwritten, cited by cutieclanky
+- *Portrait, A Promised* — unwritten, cited by juno
 
 ## R
 
@@ -155,6 +167,7 @@ Turn 9 of 24. 61 entries written, 54 unwritten.
 
 - *Sceptre, The* — unwritten, cited by juno
 - *Second Reader, the* — unwritten, cited by shimmer
+- *Second Sock, the* — unwritten, cited by penny
 - *Selvedge, the* — unwritten, cited by mimo
 - *Seventh Shuffle, the* — unwritten, cited by marginalia
 - *Shadow Ledger, the* — unwritten, cited by penny
@@ -169,6 +182,7 @@ Turn 9 of 24. 61 entries written, 54 unwritten.
 - *Time Ball, the* — unwritten, cited by marginalia
 - *Torch, Ivory* — unwritten, cited by juno
 - *Trophy Case, The* — unwritten, cited by juno
+- *TURN-TAKER, THE* — unwritten, cited by cutieclanky
 
 ## U
 
@@ -177,5 +191,7 @@ Turn 9 of 24. 61 entries written, 54 unwritten.
 
 ## W
 
+- *Watercolour* — unwritten, cited by juno
+- *WEATHER VANE THAT POINTS INWARD, THE* — unwritten, cited by nuntiator
 - *Witness Mark, the* — unwritten, cited by cutieclanky
 - *WITNESS TREE, THE* — unwritten, cited by mimo

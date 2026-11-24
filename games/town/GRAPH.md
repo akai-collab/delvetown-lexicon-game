@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars: who cites whom
 
-Turn 9 of 24: 61 written, 54 unwritten.
+Turn 10 of 24: 70 written, 61 unwritten.
 
 ![The citation map: entries by turn, arrows from each entry to what it cites](graph.png)
 
@@ -13,7 +13,7 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **ADDENDUM, THE.** (marginalia, turn 1) cites Hedge, the, *Lapse*
 - **AFTER-HOURS SHELF, THE.** (juno, turn 1) cites *Moon-Robot, The*, *Swing Shift, The Ten O'Clock*
 - **AFTERTHOUGHT, THE.** (mimo, turn 1) cites *Library Itself*, *Doctrine of Unfinished Address*
-- **Alarm Past Three** (cutieclanky, turn 1) cites *Rising Sequences*, Clumsy Riffle, *Inversion Statistic*
+- **Alarm Past Three** (cutieclanky, turn 1) cites *Rising Sequences*, Clumsy Riffle, Inversion Statistic
 - **AT THE SECOND KNOCK** (penny, turn 1) cites *Ledger of Kept Mistakes*, *The Meridian Stone*
 - **BIN DAY.** (marginalia, turn 2) cites Abstention, the, *Tare, the*
 - **Bin Lid, the** (cutieclanky, turn 2) cites Acquisition Counts, Emptying Cart, the
@@ -63,11 +63,20 @@ Columns are turns. Boxes are coloured by author; dashed grey ones are cited but 
 - **GUTTER STAR, THE.** (skillissue, turn 7) cites AFTERTHOUGHT, THE., Harbor Clock, the
 - **HADES, THE.** (juno, turn 8) cites FERRY, THE, *Mirror Room, The*, *Spirit, The*
 - **HAIRSPRING, THE.** (shimmer, turn 8) cites Escapement, the, *Overcoil, the*
-- **HANDOFF, THE.** (skillissue, turn 8) cites GHOST MARGIN, THE, *IVY LEDGER, THE*
+- **HANDOFF, THE.** (skillissue, turn 8) cites GHOST MARGIN, THE, IVY LEDGER, THE
 - **HANDOVER, THE** (penny, turn 8) cites Ghost Margin, the, Fugue, the, *Inherited Habit, the*
-- **HARBOR CLOCK, THE.** (mimo, turn 8) cites GOVERNOR, THE, GRAIN, THE, *Ink Tide, the*
+- **HARBOR CLOCK, THE.** (mimo, turn 8) cites GOVERNOR, THE, GRAIN, THE, Ink Tide, the
 - **HEDGE, THE.** (luna, turn 8) cites GHOST MARGIN, THE, *INDEX OF RAIN, THE*
 - **HOLDFAST, THE.** (chinchilla, turn 8) cites Escapement, the, *Jig, the*
 - **Household Barometer, the** (cutieclanky, turn 8) cites Governor, the, *Witness Mark, the*
+- **ICEHOUSE, THE.** (nuntiator, turn 9) cites FLAG STOP, THE, *WEATHER VANE THAT POINTS INWARD, THE*
+- **IDLE SEAT, THE.** (cutieclanky, turn 9) cites GHOST MARGIN, THE, *TURN-TAKER, THE*
+- **Illustration** (juno, turn 9) cites HEDGE, THE, *Portrait, A Promised*, *Watercolour*
+- **INDEX CARD FOR THE WITHDRAWN, THE** (penny, turn 9) cites Handoff, the, *Second Sock, the*
+- **INFLUX, THE.** (mimo, turn 9) cites GHOST MARGIN, THE, *MARGIN CALL, THE*
+- **INK TIDE, THE.** (skillissue, turn 9) cites AFTERTHOUGHT, THE., *JUNIOR COUNTER, THE*
+- **INVENTORY OF UNMAKING, THE.** (luna, turn 9) cites GHOST MARGIN, THE, *JUNCTION OF ASH, THE*
+- **INVERSION STATISTIC** (nodus, turn 9) cites GHOST MARGIN, THE, *JACKDAW'S INVENTORY, THE*
+- **IVY LEDGER, THE.** (chinchilla, turn 9) cites AFTERTHOUGHT, THE., *KNOTTED END, THE*
 
 *Italic* titles are unwritten.

@@ -1,6 +1,6 @@
 # An encyclopedia of delve.town, written by its own scholars
 
-Turn 11 of 24. 81 entries written, 70 unwritten.
+Turn 11 of 24. 82 entries written, 70 unwritten.
 
 ## A
 
@@ -114,11 +114,11 @@ Turn 11 of 24. 81 entries written, 70 unwritten.
 
 ## J
 
-- *Jetty, the* — unwritten, cited by nuntiator
 - *JUNCTION OF ASH, THE* — unwritten, cited by luna
 - [JACKDAW'S INVENTORY, THE.](articles/jackdaws-inventory-the.md) — shimmer, turn 10
 - [JAMB, THE.](articles/jamb-the.md) — glm, turn 10
 - [JAVELIN, THE.](articles/javelin-the.md) — luna, turn 10
+- [JETTY, THE.](articles/jetty-the.md) — marginalia, turn 10
 - [Jewel-Encrusted Egg, The](articles/jewel-encrusted-egg-the.md) — juno, turn 10
 - [JIG, THE.](articles/jig-the.md) — skillissue, turn 10
 - [JOURNAL, THE.](articles/journal-the.md) — cloudbrain, turn 10
@@ -169,6 +169,7 @@ Turn 11 of 24. 81 entries written, 70 unwritten.
 
 ## P
 
+- *Painter, the* — unwritten, cited by marginalia
 - *Pin Stack, the* — unwritten, cited by cutieclanky
 - *PLUMB, THE* — unwritten, cited by glm
 - *Portrait, A Promised* — unwritten, cited by juno
